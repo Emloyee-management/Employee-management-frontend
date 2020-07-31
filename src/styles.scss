@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+/*rbh front-end global styles */
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+$size__font--large: 36px;
+$size__font--regular: 18px;
+$size__font--text: 16px;
+$size__font--hint: 10px;
+
+$color--theme: #8c94e2;
+$color--red: #fd3b3b;
+$color--grey--dark: #8d8989;
+$color--grey--light: #9e9e9e;
+$color--grey--border: #e5e5e5;
+$color--black: #000000;
+$color--white: #ffffff;
+
+*,
+*:before,
+*::after {
+  box-sizing: border-box;
+}
+
+p {
+  font-size: $size__font--regular;
+  &.bold {
+    font-weight: bold;
+  }
+}
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+div,
+section,
+header {
+  &.flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.flex-align-center {
+    display: flex;
+    align-items: center;
+  }
+
+  &.red {
+    color: $color--red;
+  }
+
+  &.white {
+    color: $color--white;
+  }
+}
+
+h1,
+p {
+  margin: 0;
+  &.white {
+    color: $color--white;
+  }
+  &.red {
+    color: $color--red;
+  }
+  &.grey {
+    color: $color--grey--light;
+  }
+}
+
+.img-back-arrow {
+  cursor: pointer;
+}
+.img-back-arrow-black {
+  cursor: pointer;
+}
+.img-user-icon {
+  cursor: pointer;
+}
+.img-user-icon-white {
+  cursor: pointer;
+}
+.img-add-arrow {
+  cursor: pointer;
+}
+.img-minus-arrow {
+  cursor: pointer;
+}
