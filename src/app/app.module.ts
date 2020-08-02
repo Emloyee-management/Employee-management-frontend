@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 
 import { StartingPageComponent } from './component/starting-page/starting-page.component';
 import { ErrorPageComponent } from './component/error-page/error-page.component';
+import { UserPageComponent } from './component/user-page/user-page.component';
 
 @NgModule({
-  declarations: [AppComponent, StartingPageComponent, ErrorPageComponent],
+  declarations: [AppComponent, StartingPageComponent, ErrorPageComponent, UserPageComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
