@@ -1,0 +1,24 @@
+<div class="register-page__navbar">
+
+</div>
+<div class="register-page__container">
+    <form [formGroup]="registerForm" class="register-page__form">
+        <h1>Register</h1>
+        <!-- Your name -->
+        <p for="fullname"><b>Your name</b></p>
+        <input type="text" name="fullname" id="fullname" formControlName = "fullname" required>
+        <!-- Username -->
+        <p for="username"><b>Username </b></p>
+        <input type="text" name="username" id="username" formControlName = "username" required>
+        <!-- Email -->
+        <p for="email"><b>Email </b></p>
+        <input type="text" name="email" id="email" formControlName = "email" required>
+        <!-- Password -->
+        <p for="password"><b>Password </b></p>
+        <input type="text" name="password" id="password" formControlName = "password" required>
+        <!-- Re-enter password -->
+        <p for="repassword"><b>Re-enter password </b></p>
+        <input type="text" name="repassword" id="repassword" formControlName = "repassword" required>
+        <button type="submit" (click)="onSubmit()">Sign up</button>
+    </form>
+</div>
