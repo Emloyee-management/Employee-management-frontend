@@ -1,8 +1,10 @@
 /*rbh front-end global styles */
 // @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 $size__font--large: 36px;
 $size__font--regular: 18px;
 $size__font--text: 16px;
+$size__font--small: 12px;
 $size__font--hint: 10px;
 
 $color--theme: #8c94e2;
@@ -19,6 +21,14 @@ $color--white: #ffffff;
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  margin: 0px;
+  padding: 0px;
+}
+
 p {
   font-size: $size__font--regular;
   &.bold {
@@ -32,6 +42,7 @@ body {
   padding: 0px;
   height: 100%;
   width: 100%;
+  font-family: "open-sans-semibold", sans-serif;
 }
 
 div,
