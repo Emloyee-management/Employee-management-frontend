@@ -7,7 +7,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class OnboardingPageComponent implements OnInit {
   formGroup: FormGroup;
-
+  selectedOption: string;
+  citizenYesclick: Boolean = false;
+  citizenNoclick: Boolean = false;
+  dlClick: Boolean = false;
+  visaOptions = [
+    { name: 'H1B', value: 1 },
+    { name: 'L2', value: 2 },
+    { name: 'F1(CPT/OPT)', value: 3 },
+    { name: 'H4', value: 4 },
+  ];
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -36,10 +45,38 @@ export class OnboardingPageComponent implements OnInit {
       emergencyAddress: ['', Validators.required],
       emergencyEmail: ['', Validators.required],
       emergencyRelation: ['', Validators.required],
+      greenCard: ['', Validators.required],
+      citizen: ['', Validators.required],
+      dlNum: ['', Validators.required],
+      exp: ['', Validators.required],
+      copy: ['', Validators.required],
+      selectedOption: [this.visaOptions],
     });
   }
 
   onSubmit = () => {
     console.info(this.formGroup);
+  };
+
+  onDLYes = (event: Event): void => {
+    this.dlClick = !this.dlClick;
+  };
+
+  onCitizenYes = (event: Event): void => {
+    this.citizenYesclick = !this.citizenYesclick;
+    if (this.citizenNoclick) {
+      this.citizenNoclick = !this.citizenNoclick;
+    }
+
+    //@ts-ignore
+    document.getElementById('input2').checked = false;
+  };
+  onCitizenNo = (event: Event): void => {
+    this.citizenNoclick = !this.citizenNoclick;
+    if (this.citizenYesclick) {
+      this.citizenYesclick = !this.citizenYesclick;
+    }
+    //@ts-ignore
+    document.getElementById('input1').checked = false;
   };
 }
