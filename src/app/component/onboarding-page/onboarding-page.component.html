@@ -1,0 +1,93 @@
+<div class="onboarding-page__container">
+  <form [formGroup]="formGroup" class="onboarding-page__form">
+    <mat-horizontal-stepper>
+      <mat-step [stepControl]="formGroup">
+        <h1>Personal Info</h1>
+        <div class="onboarding-page__form--area1">
+          <h4>First name</h4>
+          <input
+            placeholder="Last name "
+            formControlName="personalFirstname"
+            required
+          />
+          <h4>Last name</h4>
+          <input
+            placeholder="Last name "
+            formControlName="personalLastname"
+            required
+          />
+          <h4>Middle name</h4>
+          <input placeholder="Middle name " formControlName="personalMidname" />
+          <h4>Preferred name</h4>
+          <input
+            placeholder="Preferred name "
+            formControlName="personalPreferredname"
+          />
+          <h4>Current Address</h4>
+          <input placeholder=" " formControlName="personalAddress" />
+          <h4>Ceil phone</h4>
+          <input placeholder=" " formControlName="personalPhone" />
+          <h4>Avatar</h4>
+          <input type="file" placeholder=" " formControlName="personalAvatar" />
+          <h4>Car Info</h4>
+          <input placeholder=" " formControlName="personalCar" />
+          <button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step [stepControl]="formGroup">
+        <h1>Legal Info</h1>
+        <div class="onboarding-page__form--area2">
+          <h4>Email</h4>
+          <input formControlName="legalEmail" placeholder="a@b.com" />
+          <h4>Are you a citizen or permanent resident of the U.S?</h4>
+          <div class="onboarding-page__form--checkbox1 flex-align-center">
+            <label>Yes</label>
+            <input type="checkbox" formControlName="legalCitizen1" />
+            <label>No</label>
+            <input type="checkbox" formControlName="legalCitizen2" />
+          </div>
+          <h4>Do you have a drive license?</h4>
+          <div class="onboarding-page__form--checkbox2 flex-align-center">
+            <label>Yes</label>
+            <input type="checkbox" formControlName="legalDL" />
+          </div>
+          <h4>SSN</h4>
+          <input formControlName="legalSSN" placeholder="xxx-xx-xxxx" />
+          <h4>Date of Birth</h4>
+          <input formControlName="legalDob" placeholder="MM/DD/YYYY" />
+          <div class="onboarding-page__form--area2--buttons flex-align-center">
+            <button matStepperPrevious>Back</button>
+            <button matStepperNext>Next</button>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step [stepControl]="formGroup">
+        <h1>Other</h1>
+        <div class="onboarding-page__form--area2">
+          <h4>Reference</h4>
+          <input formControlName="referName" placeholder="Name" />
+          <input formControlName="referPhone" placeholder="Phone Number" />
+          <input formControlName="referAddress" placeholder="Address" />
+          <input formControlName="referEmail" placeholder="Email" />
+          <input formControlName="referRelation" placeholder="Relationship" />
+          <h4>Emergency Contact</h4>
+          <input formControlName="emergencyName" placeholder="Name" />
+          <input formControlName="emergencyPhone" placeholder="Phone Number" />
+          <input formControlName="emergencyAddress" placeholder="Address" />
+          <input formControlName="emergencyEmail" placeholder="Email" />
+          <input
+            formControlName="emergencyRelation"
+            placeholder="Relationship"
+          />
+          <div class="onboarding-page__form--area3--buttons">
+            <button matStepperPrevious>Back</button>
+            <button type="submit" (click)="onSubmit()">
+              Submit Application
+            </button>
+          </div>
+          <!-- <button>Submit Application</button> -->
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</div>
