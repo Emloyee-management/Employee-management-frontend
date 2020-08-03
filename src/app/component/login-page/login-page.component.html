@@ -1,0 +1,16 @@
+<div class="login-page__container">
+  <form [formGroup]="loginForm" class="login-page__form">
+    <h1>Login</h1>
+    <div class="login-page__form--area">
+      <h4>Username:</h4>
+      <input type="text" formControlName="username" />
+      <h4>Password:</h4>
+      <input type="text" formControlName="password" />
+    </div>
+    <Button type="submit" (click)="onSubmit()">Login</Button>
+    <div class="login-page__form--hint">
+      <p>Don't have an account yet?</p>
+      <p class="sign-up">Sign up here</p>
+    </div>
+  </form>
+</div>
