@@ -1,0 +1,142 @@
+<div class="onboarding-page__container">
+  <form [formGroup]="formGroup" class="onboarding-page__form">
+    <mat-horizontal-stepper>
+      <mat-step [stepControl]="formGroup">
+        <h1>Personal Info</h1>
+        <div class="onboarding-page__form--area1">
+          <h4>First name</h4>
+          <input
+            placeholder="Last name "
+            formControlName="personalFirstname"
+            required
+          />
+          <h4>Last name</h4>
+          <input
+            placeholder="Last name "
+            formControlName="personalLastname"
+            required
+          />
+          <h4>Middle name</h4>
+          <input placeholder="Middle name " formControlName="personalMidname" />
+          <h4>Preferred name</h4>
+          <input
+            placeholder="Preferred name "
+            formControlName="personalPreferredname"
+          />
+          <h4>Current Address</h4>
+          <input placeholder=" " formControlName="personalAddress" />
+          <h4>Ceil phone</h4>
+          <input placeholder=" " formControlName="personalPhone" />
+          <h4>Avatar</h4>
+          <input type="file" placeholder=" " formControlName="personalAvatar" />
+          <h4>Car Info</h4>
+          <input
+            placeholder="e.g.Audi_Q7_Black"
+            formControlName="personalCar"
+          />
+          <button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step [stepControl]="formGroup">
+        <h1>Legal Info</h1>
+        <div class="onboarding-page__form--area2">
+          <h4>Email</h4>
+          <input formControlName="legalEmail" placeholder="a@b.com" />
+          <h4>Are you a citizen or permanent resident of the U.S?</h4>
+          <div class="onboarding-page__form--checkbox1 flex-align-center">
+            <label>Yes</label>
+            <input
+              id="input1"
+              type="checkbox"
+              formControlName="legalCitizen1"
+              (change)="onCitizenYes($event)"
+              checked="true"
+            />
+            <label>No</label>
+            <input
+              id="input2"
+              type="checkbox"
+              formControlName="legalCitizen2"
+              (change)="onCitizenNo($event)"
+            />
+          </div>
+          <div
+            *ngIf="citizenYesclick"
+            class="onboarding-page__form--checkbox1 flex-align-center small-font"
+          >
+            <label>Green Card</label>
+            <input type="checkbox" formControlName="greenCard" />
+            <label>Citizen</label>
+            <input type="checkbox" formControlName="citizen" />
+          </div>
+          <div
+            *ngIf="citizenNoclick"
+            class="onboarding-page__form--checkbox1 flex-align-center small-font"
+          >
+            <select formControlName="selectedOption">
+              <option selected="selected" disabled
+                >Choose your visa type</option
+              >
+              <option *ngFor="let o of visaOptions">
+                {{ o.name }}
+              </option>
+            </select>
+          </div>
+
+          <h4>Do you have a drive license?</h4>
+          <div class="onboarding-page__form--checkbox2 flex-align-center">
+            <label>Yes</label>
+            <input
+              type="checkbox"
+              formControlName="legalDL"
+              (change)="onDLYes($event)"
+            />
+          </div>
+          <div *ngIf="dlClick">
+            <h4>Drive license number</h4>
+            <input formControlName="dlNum" placeholder="" />
+            <h4>Expiration Date</h4>
+            <input formControlName="exp" placeholder="MM/DD/YYY" />
+            <h4>Photo Copy</h4>
+            <input type="file" formControlName="copy" placeholder="MM/DD/YYY" />
+          </div>
+          <h4>SSN</h4>
+          <input formControlName="legalSSN" placeholder="xxx-xx-xxxx" />
+          <h4>Date of Birth</h4>
+          <input formControlName="legalDob" placeholder="MM/DD/YYYY" />
+          <div class="onboarding-page__form--area2--buttons flex-align-center">
+            <button matStepperPrevious>Back</button>
+            <button matStepperNext>Next</button>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step [stepControl]="formGroup">
+        <h1>Other</h1>
+        <div class="onboarding-page__form--area2">
+          <h4>Reference</h4>
+          <input formControlName="referName" placeholder="Name" />
+          <input formControlName="referPhone" placeholder="Phone Number" />
+          <input formControlName="referAddress" placeholder="Address" />
+          <input formControlName="referEmail" placeholder="Email" />
+          <input formControlName="referRelation" placeholder="Relationship" />
+          <h4>Emergency Contact</h4>
+          <input formControlName="emergencyName" placeholder="Name" />
+          <input formControlName="emergencyPhone" placeholder="Phone Number" />
+          <input formControlName="emergencyAddress" placeholder="Address" />
+          <input formControlName="emergencyEmail" placeholder="Email" />
+          <input
+            formControlName="emergencyRelation"
+            placeholder="Relationship"
+          />
+          <div class="onboarding-page__form--area2--buttons flex-align-center">
+            <button matStepperPrevious>Back</button>
+            <button type="submit" (click)="onSubmit()">
+              Submit Application
+            </button>
+          </div>
+          <!-- <button>Submit Application</button> -->
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</div>
