@@ -1,21 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  ReactiveFormsModule,
-  FormsModule,
-} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ErrorPageComponent } from './component/error-page/error-page.component';
 import { UserPageComponent } from './component/user-page/user-page.component';
 import { LoginPageComponent } from './component/login-page/login-page.component';
-import { RegistrationComponent } from './component/registration/registration.component';
+
 import { OnboardingPageComponent } from './component/onboarding-page/onboarding-page.component';
 import { MaterialModule } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomePageComponent } from './component/home-page/home-page.component';
+import { RegistrationComponent } from './component/register-page/register-page.component';
+import { SessionService } from './service/SessionService';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginPageComponent,
     RegistrationComponent,
     OnboardingPageComponent,
+    HomePageComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     FormsModule,
   ],
-  providers: [],
+
+  providers: [SessionService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

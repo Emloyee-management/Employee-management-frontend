@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "employee-managment-frontend"
+    }
+  },
+  "defaultProject": "employee-managment-frontend",
+  "cli": {
+    "analytics": "25c17b4a-05dd-49b4-a1e8-0a048f6828fc"
+  }
 }

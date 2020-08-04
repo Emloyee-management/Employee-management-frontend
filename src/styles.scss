@@ -1,5 +1,3 @@
-@import url ("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-/*rbh front-end global styles */
 // @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 $size__font--large: 36px;
@@ -39,7 +37,7 @@ p {
 
 html,
 body {
-  font-family: "open-sans-semibold",  sans-serif;
+  // font-family: "open-sans-semibold",  sans-serif;
   margin: 0px;
   padding: 0px;
   height: 100%;

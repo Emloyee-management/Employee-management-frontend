@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { SessionService } from 'src/app/service/SessionService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -12,16 +14,27 @@ export class LoginPageComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor() {}
+  constructor(private sessionService: SessionService, private router: Router) {}
 
-  onSubmit = () => {
+  onSubmit = async () => {
     if (
       this.loginForm.value.username === '' ||
       this.loginForm.value.password === ''
     ) {
       alert("Can't be empty!");
     }
-    console.info(this.loginForm.value);
+
+    const loginInfo: IUserInfo = await this.sessionService.login(
+      this.loginForm.value.username,
+      this.loginForm.value.password
+    );
+
+    if (loginInfo.id !== 0) {
+      this.router.navigateByUrl('/homepage');
+    } else {
+      alert('Wrong credentials!');
+      return;
+    }
   };
 
   ngOnInit(): void {}
