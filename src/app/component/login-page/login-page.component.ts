@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent implements OnInit {
+  loaded: boolean = false;
   loginForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
@@ -17,6 +18,7 @@ export class LoginPageComponent implements OnInit {
   constructor(private sessionService: SessionService, private router: Router) {}
 
   onSubmit = async () => {
+    this.loaded = !this.loaded;
     if (
       this.loginForm.value.username === '' ||
       this.loginForm.value.password === ''
@@ -33,6 +35,7 @@ export class LoginPageComponent implements OnInit {
       this.router.navigateByUrl('/homepage');
     } else {
       alert('Wrong credentials!');
+      this.loaded = !this.loaded;
       return;
     }
   };

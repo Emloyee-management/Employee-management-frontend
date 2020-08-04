@@ -13,18 +13,14 @@ export class SessionService {
     return result.data;
   };
 
-  register = async (username: string, email: string, password: string) => {
-    axios
-      .post(
-        `${config.baseURL}/registerUser/?username=${username}&email=${email}&password=${password}`,
-        {}
-      )
-      .then((data) => {
-        return data.data;
-      })
-      .catch((e) => {
-        console.info(e);
-      });
-    // return result.data;
+  register = async (
+    username: string,
+    email: string,
+    password: string
+  ): Promise<IUserInfo> => {
+    const result = await axios.post(
+      `${config.baseURL}/registerUser/?username=${username}&email=${email}&password=${password}`
+    );
+    return result.data;
   };
 }

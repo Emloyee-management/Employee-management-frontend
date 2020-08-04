@@ -4,5 +4,5 @@ const ipConfig = '10.0.0.218';
 const ipLocal = 'localhost';
 
 export const config: IConfigType = {
-  baseURL: `http://${ipConfig}:8080/`,
+  baseURL: `http://${ipLocal}:8080/`,
 };
