@@ -1,0 +1,5 @@
+{
+  "ipLocal": "localhost",
+  "ipConfig": "10.0.0.218",
+  "baseURL": "http://localhost:8080/"
+}
