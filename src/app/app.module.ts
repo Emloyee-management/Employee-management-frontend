@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './component/home-page/home-page.component';
 import { RegistrationComponent } from './component/register-page/register-page.component';
 import { SessionService } from './service/SessionService';
+import { PersonalInfoPageComponent } from './component/personal-info-page/personal-info-page.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SessionService } from './service/SessionService';
     OnboardingPageComponent,
     HomePageComponent,
     RegistrationComponent,
+    PersonalInfoPageComponent,
   ],
   imports: [
     BrowserModule,

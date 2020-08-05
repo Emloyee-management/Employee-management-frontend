@@ -1,0 +1,35 @@
+<div class="personal-info__container">
+    <div id="mySidenav" class="home-page__sidenav">
+        <img src="../../../assets/employee.svg" alt="" />
+        <a href="#">Personal Information</a>
+        <div (mouseover)="onHover(visa)" (mouseout)="onHoverout(visa)">
+          <a href="#">Visa Status Management</a>
+          <div class="home-page__sidenav--visa">
+            <a href="#">OPT STEM Management</a>
+          </div>
+        </div>
+        <div (mouseover)="onHover(house)" (mouseout)="onHoverout(house)">
+          <a href="#">Housing</a>
+          <div class="home-page__sidenav--house">
+            <a href="#">House Detail</a>
+            <a href="#">Report facility issue</a>
+          </div>
+        </div>
+        <a href="#">Log Out</a>
+      </div>
+    <div class="home-page__content">
+      <header class="home-page__header" (click)="openNav()">
+        <img src="../../../assets/open-menu.svg" alt="" />
+      </header>
+      <div class="personal-info__body">
+        <div class="home-page__body--link">
+          <div class="home-page__body--link--box">
+            <div class="home-page__body--link--box-content">
+              <img src="../../../assets/calendar.svg" alt="" />
+              <h3>View my schedule</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+</div>
