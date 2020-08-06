@@ -43,7 +43,7 @@ export class RegistrationComponent implements OnInit {
       if (registerInfo.id !== 0) {
         this.router.navigateByUrl('/homepage');
       } else {
-        alert('Wrong credentials!');
+        alert('User already exists!');
         return;
       }
     }

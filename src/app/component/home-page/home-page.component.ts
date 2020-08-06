@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { SessionService } from 'src/app/service/SessionService';
 
 @Component({
   selector: 'app-home-page',
@@ -9,10 +11,21 @@ export class HomePageComponent implements OnInit {
   isShow: boolean = false;
   visa: String = 'visa';
   house: String = 'house';
+  user: IUserInfo;
+  private userSub: Subscription;
+  constructor(private sessionService: SessionService) {}
 
-  constructor() {}
+  ngOnInit(): void {
+    this.userSub = this.sessionService
+      .getUserinfo()
+      .subscribe((user: IUserInfo) => {
+        this.user = user;
+      });
+  }
 
-  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
+  }
 
   openNav = () => {
     if (!this.isShow) {
@@ -25,6 +38,7 @@ export class HomePageComponent implements OnInit {
       this.closeNav();
     }
     this.isShow = !this.isShow;
+    console.info(this.user);
   };
 
   closeNav = () => {
