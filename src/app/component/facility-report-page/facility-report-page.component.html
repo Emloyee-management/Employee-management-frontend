@@ -1,0 +1,46 @@
+<div class="facility-report-page__container">
+  <app-side-nav></app-side-nav>
+  <div class="facility-report-page__content">
+    <header class="facility-report-page__header" (click)="openNav()">
+      <img src="../../../assets/open-menu.svg" alt="" />
+    </header>
+
+    <form class="facility-report-page__form" [formGroup]="reportForm">
+      <div class="facility-report-page__form--area">
+        <h1>Facility Issue Report Form</h1>
+        <h4>Title:</h4>
+        <input type="text" formControlName="title" />
+        <h4>Description:</h4>
+        <textarea formControlName="description"></textarea>
+        <div class="facility-report-page__buttons flex-align-center">
+          <Button type="submit" (click)="onCancel()">Reset</Button>
+          <Button type="submit" (click)="onSubmit()">Submit Report</Button>
+        </div>
+      </div>
+    </form>
+
+    <div class="facility-report-page__reports flex-align-center">
+      <h2>Exisitng reports:</h2>
+      <div class="report-box" *ngFor="let report of reports; let i = index">
+        <div class="flex-align-center">
+          <h4>
+            Title:
+          </h4>
+          &nbsp;{{ report.title }}
+        </div>
+        <div class="flex-align-center">
+          <h4>Created By:</h4>
+          &nbsp;{{ report.createdBy }}
+        </div>
+        <div class="flex-align-center">
+          <h4>Report date:</h4>
+          &nbsp;{{ report.reportDate }}
+        </div>
+        <div class="flex-align-center">
+          <h4>Status:</h4>
+          &nbsp;{{ report.status }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

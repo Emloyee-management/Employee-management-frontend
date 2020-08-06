@@ -1,0 +1,55 @@
+@import "../../../styles.scss";
+.sidenav {
+  height: 100%;
+  width: 0;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: $color--white;
+  position: fixed;
+  overflow-x: hidden;
+  transition: 0.5s;
+
+  text-align: center;
+  img {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+  }
+  a,
+  p {
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  a:hover,
+  .offcanvas a:focus {
+    color: #f1f1f1;
+  }
+  .sidenav--house {
+    // display: none;
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    a {
+      font-size: $size__font--small;
+    }
+  }
+  .sidenav--visa {
+    // display: none;
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    a {
+      font-size: $size__font--small;
+    }
+  }
+}

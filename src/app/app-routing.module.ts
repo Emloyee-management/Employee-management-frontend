@@ -5,6 +5,8 @@ import { OnboardingPageComponent } from './component/onboarding-page/onboarding-
 import { RegistrationComponent } from './component/register-page/register-page.component';
 import { HomePageComponent } from './component/home-page/home-page.component';
 import { PersonalInfoPageComponent } from './component/personal-info-page/personal-info-page.component';
+import { HousingPageComponent } from './component/housing-page/housing-page.component';
+import { FacilityReportPageComponent } from './component/facility-report-page/facility-report-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'homepage', component: HomePageComponent },
   { path: 'personal', component: PersonalInfoPageComponent}
+  { path: 'housing', component: HousingPageComponent },
+  { path: 'facility-report', component: FacilityReportPageComponent },
 ];
 
 @NgModule({

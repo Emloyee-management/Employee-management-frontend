@@ -17,6 +17,9 @@ import { RegistrationComponent } from './component/register-page/register-page.c
 import { SessionService } from './service/SessionService';
 import { PersonalInfoPageComponent } from './component/personal-info-page/personal-info-page.component';
 import { InfoService } from './service/InfoService';
+import { HousingPageComponent } from './component/housing-page/housing-page.component';
+import { FacilityReportPageComponent } from './component/facility-report-page/facility-report-page.component';
+import { SideNavComponent } from './component/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { InfoService } from './service/InfoService';
     HomePageComponent,
     RegistrationComponent,
     PersonalInfoPageComponent,
+    HousingPageComponent,
+    FacilityReportPageComponent,
+    SideNavComponent,
   ],
   imports: [
     BrowserModule,
