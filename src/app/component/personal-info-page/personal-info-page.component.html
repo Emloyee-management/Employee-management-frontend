@@ -1,35 +1,249 @@
 <div class="personal-info__container">
-    <div id="mySidenav" class="home-page__sidenav">
+    <div id="mySidenav" class="personal-info__sidenav">
         <img src="../../../assets/employee.svg" alt="" />
         <a href="#">Personal Information</a>
         <div (mouseover)="onHover(visa)" (mouseout)="onHoverout(visa)">
           <a href="#">Visa Status Management</a>
-          <div class="home-page__sidenav--visa">
+          <div class="personal-info__sidenav--visa">
             <a href="#">OPT STEM Management</a>
           </div>
         </div>
         <div (mouseover)="onHover(house)" (mouseout)="onHoverout(house)">
           <a href="#">Housing</a>
-          <div class="home-page__sidenav--house">
+          <div class="personal-info__sidenav--house">
             <a href="#">House Detail</a>
             <a href="#">Report facility issue</a>
           </div>
         </div>
         <a href="#">Log Out</a>
       </div>
-    <div class="home-page__content">
-      <header class="home-page__header" (click)="openNav()">
+    <div class="personal-info__content">
+      <header class="personal-info__header" (click)="openNav()">
         <img src="../../../assets/open-menu.svg" alt="" />
       </header>
       <div class="personal-info__body">
-        <div class="home-page__body--link">
-          <div class="home-page__body--link--box">
-            <div class="home-page__body--link--box-content">
-              <img src="../../../assets/calendar.svg" alt="" />
-              <h3>View my schedule</h3>
+        <div class="flex-align-start">
+          <!-- <div class="personal-info__body--link"> -->
+            <div class="personal-info__body--link--box">
+              <div class="personal-info__body--link--box-content">
+                <h3>Name</h3>
+                
+                  <div class="personal-info__body--link--box-content--text flex-align-center">
+                    <div>
+                      <p class="key">Legal Name</p>
+                      <p>Zack</p>
+                    </div>
+                    <div>
+                      <p class="key">Preferred Name</p>
+                      <p>asshole</p>
+                    </div>
+                </div>
+  
+                <div class="personal-info__body--link--box-content--text flex-align-center">
+                  <div>
+                    <p class="key">Date of Birth</p>
+                    <p>1900-01-01</p>
+                  </div>
+                  <div>
+                    <p class="key">Age</p>
+                    <p>100</p>
+                  </div>
+              </div>
+  
+              <div class="personal-info__body--link--box-content--text flex-align-center">
+                <div>
+                  <p class="key">Gender</p>
+                  <p>Transfer</p>
+                </div>
+                <div>
+                  <p class="key">SSN</p>
+                  <p>5438</p>
+                </div>
+            </div>
+            <hr>
+              <img src="../../../assets/edit.svg" alt="" />
+
+              
             </div>
           </div>
+          <!-- <div class="personal-info__body--link"> -->
+            <div class="personal-info__body--link--box">
+              <div class="personal-info__body--link--box-content">
+                <!-- <img src="../../../assets/calendar.svg" alt="" /> -->
+                <h3>Address</h3>
+                
+                  <div class="personal-info__body--link--box-content--text flex-align-center">
+                    <div>
+                      <p class="key">Primary Address</p>
+                      <p>Address Line 1</p>
+                      <p>
+                        Address Line 2
+                      </p>
+                      <p>
+                        City
+                      </p>
+                      <p>
+                        State
+                      </p>
+                      <p>
+                        Zip
+                      </p>
+                    </div>
+                    <div>
+                      <p class="key">Secondary Address</p>
+                      <p>Address Line 1</p>
+                      <p>
+                        Address Line 2
+                      </p>
+                      <p>
+                        City
+                      </p>
+                      <p>
+                        State
+                      </p>
+                      <p>
+                        Zip
+                      </p>
+                    </div>
+                </div>
+                <hr>
+                <img src="../../../assets/edit.svg" alt="" />
+
+            </div>
+          </div>
+          <!-- <div class="personal-info__body--link"> -->
+            <div class="personal-info__body--link--box">
+              <div class="personal-info__body--link--box-content">
+                <!-- <img src="../../../assets/calendar.svg" alt="" /> -->
+                <div class="personal-info__body--link--box-content--title">
+                <h3>Contact Info</h3>
+              </div>
+                  <div class="personal-info__body--link--box-content--text flex-align-center">
+                    <div>
+                      <p class="key">Personal Email</p>
+                      <p>ZackBitch@sb.com</p>
+                    </div>
+                    <div>
+                      <p class="key">Work Email</p>
+                      <p>ZackAsshole@bf.com</p>
+                    </div>
+                </div>
+  
+                <div class="personal-info__body--link--box-content--text flex-align-center">
+                  <div>
+                    <p class="key">Ceilphone</p>
+                    <p>383838383</p>
+                  </div>
+                  <div>
+                    <p class="key">Work phone</p>
+                    <p>13823838528</p>
+                  </div>
+              </div>
+              <hr>
+              <img src="../../../assets/edit.svg" alt="" />
+
+            </div>
+            
+          </div>
+          
         </div>
+        <div class="flex-align-start">
+        <div class="personal-info__body--link--box">
+          <div class="personal-info__body--link--box-content">
+            <!-- <img src="../../../assets/calendar.svg" alt="" /> -->
+            <h3>Employment</h3>
+            
+              <div class="personal-info__body--link--box-content--text flex-align-center">
+                <div>
+                  <p class="key">Work Authorization</p>
+                  <p>JB-1</p>
+                </div>
+                <div>
+                  <p class="key">Work Authorization Start Date</p>
+                  <p>2222-01-01</p>
+                </div>
+            </div>
+
+            <div class="personal-info__body--link--box-content--text flex-align-center">
+              <div>
+                <p class="key">Work Authorization End Date</p>
+                <p>2222-02-02</p>
+              </div>
+              <div>
+                <p class="key">Employment Start Date</p>
+                <p>2222-02-02</p>
+              </div>
+          </div>
+
+          <div class="personal-info__body--link--box-content--text flex-align-center">
+            <div>
+              <p class="key">Employment End Date</p>
+              <p>2222-02-02</p>
+            </div>
+            <div>
+              <p class="key">Title</p>
+              <p>Cleaner</p>
+            </div>
+        </div>
+        <hr>
+        <img src="../../../assets/edit.svg" alt="" />
+
+        </div>
+
+        
       </div>
+
+      <div class="personal-info__body--link--box">
+        <div class="personal-info__body--link--box-content">
+          <!-- <img src="../../../assets/calendar.svg" alt="" /> -->
+          <h3>Emergency Contact</h3>
+          
+            <div class="personal-info__body--link--box-content--text flex-align-center">
+              <div>
+                <p class="key">Full Name</p>
+                <p>Ian</p>
+              </div>
+              <div>
+                <p class="key">Phone</p>
+                <p>123123213</p>
+              </div>
+          </div>
+
+          <div class="personal-info__body--link--box-content--text flex-align-center">
+            <div>
+              <p class="key">Address</p>
+              <p>52 Tenn RD</p>
+            </div>
+            
+        </div>
+        <hr>
+        <img src="../../../assets/edit.svg" alt="" />
+
+      </div>
+
+      
+    </div>
+
+    <div class="personal-info__body--link--box">
+      <div class="personal-info__body--link--box-content">
+        <!-- <img src="../../../assets/calendar.svg" alt="" /> -->
+        <h3>Document Section</h3>
+        
+          <div class="personal-info__body--link--box-content--text flex-align-center">
+            <div>
+              <p>Download Document</p>
+              <a href="#">Download</a>
+            </div>
+           
+        </div>
+
+    </div>
+
+    
+  </div>
+    </div>
+      
+      </div>
+      
       </div>
 </div>

@@ -1,9 +1,14 @@
 @import "../../../styles.scss";
 
 .personal-info__container {
+    p{
+      font-size: $size__font--text;
+    }
     width: 100%;
     height: 100%;
-    background-color: #edf1f5;.home-page__sidenav {
+    background-color: #edf1f5;
+    overflow-y: auto;
+    .personal-info__sidenav {
     height: 100%;
     width: 0;
     z-index: 1;
@@ -13,14 +18,11 @@
     position: fixed;
     overflow-x: hidden;
     transition: 0.5s;
+     
+
 
     text-align: center;
-    img {
-      margin-top: 30px;
-      margin-bottom: 10px;
-      width: 50px;
-      height: 50px;
-    }
+    
     a {
       margin-top: 20px;
       text-decoration: none;
@@ -34,7 +36,7 @@
     .offcanvas a:focus {
       color: #f1f1f1;
     }
-    .home-page__sidenav--house {
+    .personal-info__sidenav--house {
       // display: none;
       transition: opacity 1s ease-out;
       opacity: 0;
@@ -44,7 +46,7 @@
         font-size: $size__font--small;
       }
     }
-    .home-page__sidenav--visa {
+    .personal-info__sidenav--visa {
       // display: none;
       transition: opacity 1s ease-out;
       opacity: 0;
@@ -56,10 +58,10 @@
     }
   }
 
-  .home-page__content {
+  .personal-info__content {
     height: 100%;
     transition: margin-left 0.5s;
-    .home-page__header {
+    .personal-info__header {
       height: 60px;
       color: $color--white;
       background-color: #2443af;
@@ -76,8 +78,9 @@
       }
     }
   .personal-info__body {
-    padding: 30px 0px 0px 30px;
-    .home-page__body--overview {
+    padding: 0px 30px 0px 30px;
+  
+    .personal-info__body--overview {
       padding: 20px;
       background-color: $color--white;
       height: 250px;
@@ -94,38 +97,56 @@
         }
       }
     }
-    .home-page__body--link {
-      margin-right: 50px;
-      margin-left: auto;
-      img {
-        width: 80px;
-        height: 80px;
-      }
+    
+     
 
-      .home-page__body--link--box {
-        position: relative;
+      .personal-info__body--link--box {
+        overflow: auto;
+        width: 33%;
+        height:auto;
         border-radius: 8px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1),
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        margin: 20px;
-        // width: 350px;
-        height: 250px;
+        margin: 20px 20px 0px 20px;
+        padding: 20px 20px 5px 20px;
         background-color: $color--white;
         cursor: pointer;
-        .home-page__body--link--box-content {
-          width: 100%;
+        .personal-info__body--link--box-content {
+         
           text-align: center;
-          position: absolute;
-          margin: 0;
-          top: 50%;
-          -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+           
+          img {
+         
+            width: 17px;
+            height: 17px;
+          }
           h3 {
             margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: x-large;
+          }
+          
+          
+        
+          .personal-info__body--link--box-content--text{
+            div{
+              p:nth-child(1){
+                color:$color--grey--light;
+              }
+            }
+            div:nth-child(1){
+              
+              text-align: left;
+            }
+            div:nth-child(2){
+              margin-right: 0px;
+              margin-left: auto;
+              text-align: right;
+            }
           }
         }
       }
-    }
+    
   }
   }
 }

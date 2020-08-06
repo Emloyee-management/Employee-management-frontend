@@ -16,6 +16,7 @@ import { HomePageComponent } from './component/home-page/home-page.component';
 import { RegistrationComponent } from './component/register-page/register-page.component';
 import { SessionService } from './service/SessionService';
 import { PersonalInfoPageComponent } from './component/personal-info-page/personal-info-page.component';
+import { InfoService } from './service/InfoService';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { PersonalInfoPageComponent } from './component/personal-info-page/person
     FormsModule,
   ],
 
-  providers: [SessionService],
+  providers: [SessionService, InfoService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
