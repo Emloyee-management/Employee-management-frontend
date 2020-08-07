@@ -1,16 +1,32 @@
 <div class="login-page__container">
-  <form [formGroup]="loginForm" class="login-page__form">
-    <h1>Login</h1>
-    <div class="login-page__form--area">
-      <h4>Username:</h4>
-      <input type="text" formControlName="username" />
-      <h4>Password:</h4>
-      <input type="text" formControlName="password" />
+  <div *ngIf="loaded; else elseBlock">
+    <div class="login-page-loading">
+      <mat-spinner></mat-spinner>
     </div>
-    <Button type="submit" (click)="onSubmit()">Login</Button>
-    <div class="login-page__form--hint">
-      <p>Don't have an account yet?</p>
-      <p class="sign-up">Sign up here</p>
+  </div>
+  <ng-template #elseBlock>
+    <div class="login-page__body">
+      <form [formGroup]="loginForm" class="login-page__form flex-align-center">
+        <div class="login-page__form--left">
+          <img src="../../../assets/content-management-system.svg" alt="" />
+        </div>
+        <div class="login-page__form--right">
+          <h1>Login</h1>
+          <div class="login-page__form--area">
+            <h4>Username:</h4>
+            <input type="text" formControlName="username" />
+            <h4>Password:</h4>
+            <input type="password" formControlName="password" />
+          </div>
+          <Button type="submit" (click)="onSubmit()">Login</Button>
+          <div class="login-page__form--hint flex-align-center">
+            <p>Don't have an account yet?</p>
+            <a href="/register">
+              <p class="sign-up">Sign up here</p>
+            </a>
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
+  </ng-template>
 </div>

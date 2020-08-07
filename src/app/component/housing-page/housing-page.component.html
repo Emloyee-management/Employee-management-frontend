@@ -1,0 +1,39 @@
+<div class="housing-page__container">
+  <app-side-nav></app-side-nav>
+  <div class="housing-page__content">
+    <header class="housing-page__header" (click)="openNav()">
+      <img src="../../../assets/open-menu.svg" alt="" />
+    </header>
+    <div class="housing-page__body">
+      <div class="housing-page__body--link--box">
+        <div class="housing-page__body--link--box-content">
+          <!-- <img src="../../../assets/document.svg" alt="" />
+          <h3>View my documents</h3> -->
+          <h1>
+            52 Tennyson Rd, East Windsor, NJ 08520
+          </h1>
+          <div class="housing-page__body--link--box-photos">
+            <img src="../../../assets/1.webp" alt="" />
+            <img src="../../../assets/2.webp" alt="" />
+            <img src="../../../assets/3.webp" alt="" />
+          </div>
+          <div class="housing-page__body--link--box-users flex-align-center">
+            <h2>Current tenants:</h2>
+            <div class="user-box" *ngFor="let user of users; let i = index">
+              <div class="flex-align-center">
+                <h4>
+                  Full name:
+                </h4>
+                {{ user.userName }}
+              </div>
+              <div class="flex-align-center">
+                <h4>Email:</h4>
+                {{ user.email }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

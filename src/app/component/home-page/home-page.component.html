@@ -1,22 +1,5 @@
 <div class="home-page__container">
-  <div id="mySidenav" class="home-page__sidenav">
-    <img src="../../../assets/employee.svg" alt="" />
-    <a href="#">Personal Information</a>
-    <div (mouseover)="onHover(visa)" (mouseout)="onHoverout(visa)">
-      <a href="#">Visa Status Management</a>
-      <div class="home-page__sidenav--visa">
-        <a href="#">OPT STEM Management</a>
-      </div>
-    </div>
-    <div (mouseover)="onHover(house)" (mouseout)="onHoverout(house)">
-      <a href="#">Housing</a>
-      <div class="home-page__sidenav--house">
-        <a href="#">House Detail</a>
-        <a href="#">Report facility issue</a>
-      </div>
-    </div>
-    <a href="#">Log Out</a>
-  </div>
+  <app-side-nav></app-side-nav>
   <div class="home-page__content">
     <header class="home-page__header" (click)="openNav()">
       <img src="../../../assets/open-menu.svg" alt="" />
@@ -28,7 +11,7 @@
           <h2>Overview</h2>
           <div>
             <h4>Full name:</h4>
-            <h4>Email:</h4>
+            <h4>Email: {{ user.email }}</h4>
             <h4>Position:</h4>
             <h4>Check-in time:</h4>
           </div>
