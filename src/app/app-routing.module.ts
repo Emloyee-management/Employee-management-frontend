@@ -15,8 +15,8 @@ const routes: Routes = [
   { path: 'onboarding', component: OnboardingPageComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'homepage', component: HomePageComponent },
-  { path: 'personal', component: PersonalInfoPageComponent}
   { path: 'housing', component: HousingPageComponent },
+  { path: 'personal-info', component: PersonalInfoPageComponent },
   { path: 'facility-report', component: FacilityReportPageComponent },
 ];
 
