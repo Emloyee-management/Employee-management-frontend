@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { SessionService } from 'src/app/service/SessionService';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home-page',
@@ -12,6 +13,10 @@ export class HomePageComponent implements OnInit {
   visa: String = 'visa';
   house: String = 'house';
   user: IUserInfo;
+  loginTime = moment(moment.now()).format('MM/DD/YYYY, h:mm:ss a');
+  userName: string;
+  email: string;
+
   private userSub: Subscription;
   constructor(private sessionService: SessionService) {}
 
@@ -19,7 +24,15 @@ export class HomePageComponent implements OnInit {
     this.userSub = this.sessionService
       .getUserinfo()
       .subscribe((user: IUserInfo) => {
-        this.user = user;
+        if (user) {
+          console.info(user);
+          this.user = user;
+          this.userName = user.userName;
+          this.email = user.email;
+        } else {
+          this.userName = localStorage.getItem('userName');
+          this.email = localStorage.getItem('email');
+        }
       });
   }
 

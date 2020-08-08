@@ -17,6 +17,7 @@ export class OnboardingPageComponent implements OnInit {
     { name: 'F1(CPT/OPT)', value: 3 },
     { name: 'H4', value: 4 },
   ];
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {

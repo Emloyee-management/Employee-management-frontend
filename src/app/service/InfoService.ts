@@ -1,35 +1,27 @@
 import axios, { AxiosResponse } from 'axios';
 import { Injectable } from '@angular/core';
 import { config } from '../config/config';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class InfoService {
-  constructor() {}
+  constructor(private router: Router) {}
 
-  
-
-  register = async (username: string, email: string, password: string) => {
-    axios
-      .post(
-        `${config.baseURL}/registerUser/?username=${username}&email=${email}&password=${password}`,
-        {}
-      )
-      .then((data) => {
-        return data.data;
-      })
-      .catch((e) => {
-        console.info(e);
-      });
-    // return result.data;
+  getPersonalInfo = async (
+    personId: number
+  ): Promise<IPersonalInfoResponse> => {
+    const personalInfo = await axios.get(
+      `${config.baseURL}/personInfo?personId=${personId}`
+      // {
+      //   validateStatus: (status) => {
+      //     if (status >= 500) {
+      //       window.location.href = '/';
+      //     }
+      //     return status < 500;
+      //   },
+      // }
+    );
+    console.info(personalInfo.data);
+    return personalInfo.data;
   };
-
-  getInfo = () => {
-      axios.get(
-          `${config.baseURL}`
-      ).then((data) => {
-          return data.data;
-      }
-          
-      )
-  }
-};
+}

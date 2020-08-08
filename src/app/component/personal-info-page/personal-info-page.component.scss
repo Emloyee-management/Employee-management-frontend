@@ -1,12 +1,27 @@
 @import "../../../styles.scss";
 
 .personal-info__container {
+  .personal-info-page-loading {
+    .mat-spinner {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    ::ng-deep .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: #2443af;
+    }
+  }
   p {
     font-size: $size__font--text;
   }
   width: 100%;
   height: 100%;
-  background-color: #edf1f5;
+  background-color: $color--theme;
   overflow-y: auto;
   .personal-info__sidenav {
     height: 100%;
@@ -78,24 +93,6 @@
     .personal-info__body {
       padding: 0px 30px 0px 30px;
 
-      .personal-info__body--overview {
-        padding: 20px;
-        background-color: $color--white;
-        height: 250px;
-        width: 550px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        div {
-          margin-top: 30px;
-          margin-left: 10px;
-          h4 {
-            margin-bottom: 15px;
-            color: $color--grey--light;
-          }
-        }
-      }
-
       .personal-info__body--link--box {
         overflow: auto;
         width: 33%;
@@ -121,6 +118,7 @@
 
           .personal-info__body--link--box-content--text {
             div {
+              margin-bottom: 5px;
               p:nth-child(1) {
                 color: $color--grey--light;
               }

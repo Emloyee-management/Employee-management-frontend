@@ -7,6 +7,7 @@ import { HomePageComponent } from './component/home-page/home-page.component';
 import { PersonalInfoPageComponent } from './component/personal-info-page/personal-info-page.component';
 import { HousingPageComponent } from './component/housing-page/housing-page.component';
 import { FacilityReportPageComponent } from './component/facility-report-page/facility-report-page.component';
+import { ErrorPageComponent } from './component/error-page/error-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'housing', component: HousingPageComponent },
   { path: 'personal-info', component: PersonalInfoPageComponent },
   { path: 'facility-report', component: FacilityReportPageComponent },
+  { path: '**', component: ErrorPageComponent },
 ];
 
 @NgModule({

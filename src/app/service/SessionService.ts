@@ -11,10 +11,18 @@ export class SessionService {
 
   login = async (username: String, password: String): Promise<IUserInfo> => {
     const result = await axios.get(
-      `${config.baseURL}/login/?username=${username}&password=${password}`
+      `${config.baseURL}/login/?username=${username}&password=${password}`,
+      {
+        validateStatus: (status) => {
+          if (status >= 500) {
+            window.location.href = '/**';
+          }
+          return status < 500;
+        },
+      }
     );
     this.userInfo = result.data;
-    return result.data;
+    return this.userInfo;
   };
 
   register = async (
@@ -23,7 +31,15 @@ export class SessionService {
     password: string
   ): Promise<IUserInfo> => {
     const result = await axios.post(
-      `${config.baseURL}/registerUser/?username=${username}&email=${email}&password=${password}`
+      `${config.baseURL}/registerUser/?username=${username}&email=${email}&password=${password}`,
+      {
+        validateStatus: (status) => {
+          if (status >= 500) {
+            window.location.href = '/**';
+          }
+          return status < 500;
+        },
+      }
     );
     return result.data;
   };
