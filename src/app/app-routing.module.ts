@@ -10,6 +10,7 @@ import { FacilityReportPageComponent } from './component/facility-report-page/fa
 import { ErrorPageComponent } from './component/error-page/error-page.component';
 import { AuthGuardService as AuthGuard } from './service/AuthGuardService';
 import { EmployeeProfilePageComponent } from './component/employee-profile-page/employee-profile-page.component';
+import { ErrorPageComponent } from './component/error-page/error-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'facility-report', component: FacilityReportPageComponent },
   { path: '**', component: ErrorPageComponent },
   { path: 'employee-profile', component: EmployeeProfilePageComponent },
+  { path: '**', component: ErrorPageComponent },
 ];
 
 @NgModule({

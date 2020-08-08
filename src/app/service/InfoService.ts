@@ -19,6 +19,7 @@ export class InfoService {
 
     return personalInfo.data;
   };
+}
 
   getHousingInfo = async (personId: string): Promise<IHouse> => {
     const houseInfo = await axios.get(
