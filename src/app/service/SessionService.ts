@@ -39,4 +39,11 @@ export class SessionService {
   getUserinfo = (): Observable<IUserInfo> => {
     return of(this.userInfo);
   };
+
+  redirectErrorPage = (status) => {
+    if (status >= 500) {
+      window.location.href = '/**';
+    }
+    return status < 500;
+  };
 }

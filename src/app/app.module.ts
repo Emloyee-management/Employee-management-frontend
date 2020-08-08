@@ -29,6 +29,9 @@ import { EmployeeProfilePageComponent } from './component/employee-profile-page/
 import { HttpClientModule } from '@angular/common/http';
 import { DxSelectBoxModule, DxListModule } from 'devextreme-angular';
 import { SearchBarComponent } from './component/search-bar/search-bar.component';
+import { DialogComponentComponent } from './component/dialog-component/dialog-component.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PostService } from './service/PostService';
 
 
 @NgModule({
@@ -49,6 +52,7 @@ import { SearchBarComponent } from './component/search-bar/search-bar.component'
     DialogValidationComponentComponent,
     EmployeeProfilePageComponent,
     SearchBarComponent,
+    DialogComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,7 @@ import { SearchBarComponent } from './component/search-bar/search-bar.component'
     DxSelectBoxModule,
     DxListModule,
     HttpClientModule
+    MatDialogModule,
   ],
 
   providers: [SessionService, InfoService, PostService, AuthGuardService],
