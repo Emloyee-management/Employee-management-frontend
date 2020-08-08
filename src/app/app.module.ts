@@ -25,6 +25,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PostService } from './service/PostService';
 import { AuthGuardService } from './service/AuthGuardService';
 import { DialogValidationComponentComponent } from './component/dialog-validation-component/dialog-validation-component.component';
+import { EmployeeProfilePageComponent } from './component/employee-profile-page/employee-profile-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DxSelectBoxModule, DxListModule } from 'devextreme-angular';
+import { SearchBarComponent } from './component/search-bar/search-bar.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +47,8 @@ import { DialogValidationComponentComponent } from './component/dialog-validatio
     SideNavComponent,
     DialogComponentComponent,
     DialogValidationComponentComponent,
+    EmployeeProfilePageComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +58,9 @@ import { DialogValidationComponentComponent } from './component/dialog-validatio
     BrowserAnimationsModule,
     FormsModule,
     MatDialogModule,
+    DxSelectBoxModule,
+    DxListModule,
+    HttpClientModule
   ],
 
   providers: [SessionService, InfoService, PostService, AuthGuardService],

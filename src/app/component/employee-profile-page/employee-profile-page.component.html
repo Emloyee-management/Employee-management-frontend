@@ -1,0 +1,42 @@
+<div class="employee-profile__container">
+    <app-side-nav></app-side-nav>
+    <div class="employee-profile__content">
+        <header class="employee-profile__header">
+            <img src="../../../assets/open-menu.svg" alt="" (click)="openNav()" />
+        </header>
+        <app-search-bar class="employee-profile__searchbar" (onSelectedOption)="onSelectedOption($event)">
+        </app-search-bar>
+        <div class="employee-profile__body">
+            <div *ngFor="let employees of emp">
+                <div class="flex-align-start">
+                    <div class="employee-profile__body--link--box">
+                        <div class="employee-profile__body--link--box--content">
+                            <div class="employee-profile__body--link--box--content--text flex-align-center">
+                                <div>
+                                    <p class="key">Legal Fullname</p>
+                                    <p>{{employees.fullname}}</p>
+                                </div>
+                                <div>
+                                    <p class="key">Starting Date</p>
+                                    <p>{{employees.startdate}}</p>
+                                </div>
+                            </div>
+
+                            <div class="employee-profile__body--link--box--content--text flex-align-center">
+                                <div>
+                                    <p class="key">SSN</p>
+                                    <p>{{employees.ssn}}</p>
+                                </div>
+                                <div>
+                                    <p class="key">Visa Status</p>
+                                    <p>{{employees.visaStatus}}</p>
+                                </div>
+                            </div>
+                            <hr />
+                            <img src="../../../assets/edit.svg" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
