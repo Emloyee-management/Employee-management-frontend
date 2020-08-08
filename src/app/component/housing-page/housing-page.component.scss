@@ -4,6 +4,21 @@
   height: 100%;
   background-color: $color--theme;
   overflow-y: auto;
+  .housing-page-loading {
+    .mat-spinner {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    ::ng-deep .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: #2443af;
+    }
+  }
   .housing-page__content {
     transition: margin-left 0.5s;
 
@@ -53,7 +68,14 @@
           }
           .housing-page__body--link--box-users {
             flex-wrap: wrap;
+            h4 {
+              color: $color--grey--light;
+              margin-right: 10px;
+            }
             .user-box {
+              div:nth-child(2) {
+                margin-top: 10px;
+              }
               margin-left: 20px;
               margin-bottom: 20px;
               padding: 20px;

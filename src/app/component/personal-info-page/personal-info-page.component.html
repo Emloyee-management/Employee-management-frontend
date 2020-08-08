@@ -76,14 +76,10 @@
                   <p>
                     {{ personalInfo.addressLine2 }}
                   </p>
+                  <p>{{ personalInfo.city }},</p>
+                  <p>{{ personalInfo.stateName }},</p>
                   <p>
-                    {{ personalInfo.city }}
-                  </p>
-                  <p>
-                    {{ personalInfo.stateName }}
-                  </p>
-                  <p>
-                    Zip
+                    {{ personalInfo.zipCode }}
                   </p>
                 </div>
                 <div>
@@ -92,12 +88,8 @@
                   <p>
                     {{ personalInfo.addressLine2 }}
                   </p>
-                  <p>
-                    {{ personalInfo.city }}
-                  </p>
-                  <p>
-                    {{ personalInfo.stateName }}
-                  </p>
+                  <p>{{ personalInfo.city }},</p>
+                  <p>{{ personalInfo.stateName }},</p>
                   <p>
                     {{ personalInfo.zipCode }}
                   </p>
@@ -178,7 +170,7 @@
               >
                 <div>
                   <p class="key">Work Authorization End Date</p>
-                  <p>N/A</p>
+                  <p>{{ personalInfo.visaEndDate }}</p>
                 </div>
                 <div>
                   <p class="key">Employment Start Date</p>

@@ -1,0 +1,27 @@
+<div class="dialog-component">
+  <h1 mat-dialog-title>Comments</h1>
+  <div mat-dialog-content *ngFor="let comment of data; let i = index">
+    <div class="comment-box">
+      <div class="flex-align-center">
+        <h4>Commenter:&nbsp;</h4>
+        <p>{{ comment.firstName }}&nbsp;{{ comment.lastName }}</p>
+      </div>
+      <div class="flex-align-center">
+        <h4>Comment:&nbsp;</h4>
+        <p>{{ comment.comment }}</p>
+      </div>
+      <div class="flex-align-center">
+        <h4>Comment:&nbsp;</h4>
+        <p>{{ comment.createdDate }}</p>
+      </div>
+    </div>
+    <!-- <p>What's your favorite animal?</p> -->
+    <!-- <mat-form-field>
+      <mat-label>Favorite Animal</mat-label>
+      <input matInput [(ngModel)]="data.animal" />
+    </mat-form-field> -->
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Ok</button>
+  </div>
+</div>

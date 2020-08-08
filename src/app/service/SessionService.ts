@@ -33,18 +33,22 @@ export class SessionService {
     const result = await axios.post(
       `${config.baseURL}/registerUser/?username=${username}&email=${email}&password=${password}`,
       {
-        validateStatus: (status) => {
-          if (status >= 500) {
-            window.location.href = '/**';
-          }
-          return status < 500;
-        },
+        validateStatus: (status) => this.redirectErrorPage(status),
       }
     );
     return result.data;
   };
 
+  logout = () => {};
+
   getUserinfo = (): Observable<IUserInfo> => {
     return of(this.userInfo);
+  };
+
+  redirectErrorPage = (status) => {
+    if (status >= 500) {
+      window.location.href = '/**';
+    }
+    return status < 500;
   };
 }

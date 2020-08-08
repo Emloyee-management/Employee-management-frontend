@@ -20,6 +20,9 @@ import { InfoService } from './service/InfoService';
 import { HousingPageComponent } from './component/housing-page/housing-page.component';
 import { FacilityReportPageComponent } from './component/facility-report-page/facility-report-page.component';
 import { SideNavComponent } from './component/side-nav/side-nav.component';
+import { DialogComponentComponent } from './component/dialog-component/dialog-component.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PostService } from './service/PostService';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,7 @@ import { SideNavComponent } from './component/side-nav/side-nav.component';
     HousingPageComponent,
     FacilityReportPageComponent,
     SideNavComponent,
+    DialogComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +47,10 @@ import { SideNavComponent } from './component/side-nav/side-nav.component';
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatDialogModule,
   ],
 
-  providers: [SessionService, InfoService],
+  providers: [SessionService, InfoService, PostService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

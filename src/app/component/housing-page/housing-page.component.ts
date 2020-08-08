@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoService } from 'src/app/service/InfoService';
 
 @Component({
   selector: 'app-housing-page',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./housing-page.component.scss'],
 })
 export class HousingPageComponent implements OnInit {
+  loaded: boolean = true;
+
   users: IUserInfo[] = [
     {
       id: 1,
@@ -25,148 +28,24 @@ export class HousingPageComponent implements OnInit {
       createDate: '01-01-2020',
       modificationDate: '01-01-2020',
     },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 3,
-      userName: 'user3',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
   ] as IUserInfo[];
   isShow: boolean = false;
   visa: String = 'visa';
   house: String = 'house';
-  constructor() {}
+  houseInfo: IHouse;
+  houseEmployeeInfo: IHouseTenantsInfo;
 
-  ngOnInit(): void {}
+  constructor(private infoService: InfoService) {}
+
+  async ngOnInit(): Promise<void> {
+    this.houseInfo = await this.infoService.getHousingInfo(
+      localStorage.getItem('personId')
+    );
+    this.houseEmployeeInfo = await this.infoService.getHousingEmployees(
+      localStorage.getItem('personId')
+    );
+    this.loaded = !this.loaded;
+  }
 
   openNav = () => {
     if (!this.isShow) {

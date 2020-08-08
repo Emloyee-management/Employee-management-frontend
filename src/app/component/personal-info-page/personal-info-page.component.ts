@@ -3,6 +3,7 @@ import { SessionService } from 'src/app/service/SessionService';
 import { Subscription } from 'rxjs';
 import { InfoService } from 'src/app/service/InfoService';
 import * as moment from 'moment';
+
 @Component({
   selector: 'app-personal-info-page',
   templateUrl: './personal-info-page.component.html',
