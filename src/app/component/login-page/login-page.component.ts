@@ -31,10 +31,11 @@ export class LoginPageComponent implements OnInit {
       this.loginForm.value.password
     );
 
-    // localStorage.setItem('loginInfo', JSON.stringify(loginInfo));
     localStorage.setItem('userName', loginInfo.userName);
-    localStorage.setItem('email', loginInfo.email);
+
+    localStorage.setItem('passWord', loginInfo.password);
     localStorage.setItem('personId', loginInfo.personId.toString());
+    localStorage.setItem('eId', loginInfo.eid.toString());
 
     if (loginInfo.id !== 0) {
       this.router.navigateByUrl('/homepage');

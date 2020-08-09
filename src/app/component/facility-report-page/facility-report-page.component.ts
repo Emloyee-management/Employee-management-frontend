@@ -61,8 +61,14 @@ export class FacilityReportPageComponent implements OnInit {
   onCancel = () => {};
 
   onSubmit = async () => {
-    // await this.postService.postFacilityReport();
-    console.info(this.reportForm.value);
+    const result = await this.postService.postFacilityReport(
+      this.reportForm.value.title,
+      this.reportForm.value.description,
+      parseInt(localStorage.getItem('eId'))
+    );
+    if (result) {
+      alert('succeeded!');
+    }
   };
 
   onReportClick = (id: number) => {
@@ -78,6 +84,7 @@ export class FacilityReportPageComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
+
       //  this.animal = result;
     });
   };

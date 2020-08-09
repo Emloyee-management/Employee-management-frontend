@@ -9,26 +9,6 @@ import { InfoService } from 'src/app/service/InfoService';
 export class HousingPageComponent implements OnInit {
   loaded: boolean = true;
 
-  users: IUserInfo[] = [
-    {
-      id: 1,
-      userName: 'user1',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-    {
-      id: 2,
-      userName: 'user2',
-      email: 'a@b.com',
-      password: '123',
-      personId: 1,
-      createDate: '01-01-2020',
-      modificationDate: '01-01-2020',
-    },
-  ] as IUserInfo[];
   isShow: boolean = false;
   visa: String = 'visa';
   house: String = 'house';

@@ -8,10 +8,16 @@ declare interface IUserInfo {
   id: number;
   userName: string;
   email: string;
-  password: String;
+  password: string;
   personId: number;
   createDate: string;
   modificationDate: string;
+  avartar: Blob;
+  fullname: string;
+  title: string;
+  eid: number;
+  startDate: string;
+  cellPhone: string;
 }
 
 declare interface IPersonalInfoResponse {
@@ -55,7 +61,14 @@ declare interface IHouse {
 
 declare interface IHouseTenantsInfo {
   address: string;
-  employeeList: [];
+  employeeList: IHouseEmployee[];
+}
+
+declare interface IHouseEmployee {
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  cellphone: string;
 }
 
 declare interface IReportResponse {

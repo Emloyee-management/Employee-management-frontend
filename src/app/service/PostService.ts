@@ -28,15 +28,17 @@ export class PostService {
         result = true;
       })
       .catch((e: AxiosResponse) => {
-        return result;
+        //  this.redirectErrorPage(500);
+        console.info(e);
       });
     return result;
   };
 
   redirectErrorPage = (status) => {
-    if (status >= 500) {
-      window.location.href = '/';
+    console.info(status);
+    if (status !== 200) {
+      window.location.href = '/**';
     }
-    return status < 500;
+    return status;
   };
 }
