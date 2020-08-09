@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { Injectable } from '@angular/core';
-import { config } from '../config/config';
+import { config, redirectErrorPage } from '../config/config';
 import { Observable, of } from 'rxjs';
 
 @Injectable()
@@ -33,7 +33,7 @@ export class SessionService {
     const result = await axios.post(
       `${config.baseURL}/registerUser/?username=${username}&email=${email}&password=${password}`,
       {
-        validateStatus: (status) => this.redirectErrorPage(status),
+        validateStatus: (status) => redirectErrorPage(status),
       }
     );
     return result.data;
@@ -43,12 +43,5 @@ export class SessionService {
 
   getUserinfo = (): Observable<IUserInfo> => {
     return of(this.userInfo);
-  };
-
-  redirectErrorPage = (status) => {
-    if (status >= 500) {
-      window.location.href = '/**';
-    }
-    return status < 500;
   };
 }

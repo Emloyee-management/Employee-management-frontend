@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-nav',
@@ -9,7 +10,7 @@ export class SideNavComponent implements OnInit {
   isShow: boolean = false;
   visa: String = 'visa';
   house: String = 'house';
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -54,5 +55,10 @@ export class SideNavComponent implements OnInit {
       `sidenav--${value}`
       //@ts-ignore
     )[0].style.opacity = '0';
+  };
+
+  onLogout = () => {
+    localStorage.clear();
+    this.router.navigateByUrl('');
   };
 }

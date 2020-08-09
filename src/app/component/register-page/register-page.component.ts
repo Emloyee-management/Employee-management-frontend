@@ -41,7 +41,7 @@ export class RegistrationComponent implements OnInit {
         this.registerForm.value.password
       );
       if (registerInfo.id !== 0) {
-        this.router.navigateByUrl('/homepage');
+        this.router.navigateByUrl('/onboarding');
       } else {
         alert('User already exists!');
         return;

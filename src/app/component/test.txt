@@ -1,0 +1,9 @@
+ Person emergency = Person.builder()
+                .firstName(applicationForm.get("emergency_firstName"))
+                .lastName(applicationForm.get("emergency_lastName"))
+                .middleName(applicationForm.get("emergency_middleName"))
+                .cellphone(applicationForm.get("emergency_cellphone"))
+                .email(applicationForm.get("emergency_email"))
+                .build();
+        Contact emergency_contact = Contact.builder()
+                .relationship(applicationForm.get("emergency_relationship")).build();

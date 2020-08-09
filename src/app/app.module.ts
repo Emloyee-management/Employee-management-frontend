@@ -23,6 +23,7 @@ import { SideNavComponent } from './component/side-nav/side-nav.component';
 import { DialogComponentComponent } from './component/dialog-component/dialog-component.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PostService } from './service/PostService';
+import { AuthGuardService } from './service/AuthGuardService';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { PostService } from './service/PostService';
     MatDialogModule,
   ],
 
-  providers: [SessionService, InfoService, PostService],
+  providers: [SessionService, InfoService, PostService, AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
