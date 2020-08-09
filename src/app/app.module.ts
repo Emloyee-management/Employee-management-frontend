@@ -35,7 +35,6 @@ import { PostService } from './service/PostService';
 import { AuthGuardService } from './service/AuthGuardService';
 import { DialogValidationComponentComponent } from './component/dialog-validation-component/dialog-validation-component.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +66,7 @@ import { DialogValidationComponentComponent } from './component/dialog-validatio
     MatDialogModule,
     DxSelectBoxModule,
     DxListModule,
-    HttpClientModule
+    HttpClientModule,
     MatDialogModule,
   ],
 
