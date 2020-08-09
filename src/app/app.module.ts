@@ -33,6 +33,7 @@ import { DialogComponentComponent } from './component/dialog-component/dialog-co
 import { MatDialogModule } from '@angular/material/dialog';
 import { PostService } from './service/PostService';
 import { AuthGuardService } from './service/AuthGuardService';
+import { DialogValidationComponentComponent } from './component/dialog-validation-component/dialog-validation-component.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { AuthGuardService } from './service/AuthGuardService';
     EmployeeProfilePageComponent,
     SearchBarComponent,
     DialogComponentComponent,
+    DialogValidationComponentComponent,
   ],
   imports: [
     BrowserModule,
