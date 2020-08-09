@@ -4,6 +4,7 @@ import { InfoService } from 'src/app/service/InfoService';
 import { DialogComponentComponent } from '../dialog-component/dialog-component.component';
 import { MatDialog } from '@angular/material/dialog';
 import { PostService } from 'src/app/service/PostService';
+import { DialogValidationComponentComponent } from '../dialog-validation-component/dialog-validation-component.component';
 
 @Component({
   selector: 'app-facility-report-page',
@@ -67,7 +68,10 @@ export class FacilityReportPageComponent implements OnInit {
       parseInt(localStorage.getItem('eId'))
     );
     if (result) {
-      alert('succeeded!');
+      const dialogRef = this.dialog.open(DialogValidationComponentComponent, {
+        panelClass: 'custom-modalbox',
+        data: 'Successfully submmited!',
+      });
     }
   };
 

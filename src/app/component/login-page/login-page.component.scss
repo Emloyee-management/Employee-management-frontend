@@ -17,7 +17,7 @@
     }
     ::ng-deep .mat-progress-spinner circle,
     .mat-spinner circle {
-      stroke: #2443af;
+      stroke: $color--blue;
     }
   }
   .login-page__form {
@@ -65,7 +65,7 @@
 
       button {
         width: 100%;
-        background-color: #2443af;
+        background-color: $color--blue;
         color: white;
         border: none;
         padding: 10px 20px;

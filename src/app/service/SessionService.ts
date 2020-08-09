@@ -11,15 +11,10 @@ export class SessionService {
 
   login = async (username: String, password: String): Promise<IUserInfo> => {
     const result = await axios.get(
-      `${config.baseURL}/login/?username=${username}&password=${password}`,
-      {
-        validateStatus: (status) => {
-          if (status >= 500) {
-            window.location.href = '/**';
-          }
-          return status < 500;
-        },
-      }
+      `${config.baseURL}/login/?username=${username}&password=${password}`
+      // {
+      //   validateStatus: (status) => redirectErrorPage(status)
+      // }
     );
     this.userInfo = result.data;
     return this.userInfo;
