@@ -24,7 +24,7 @@ export class InfoService {
     const houseInfo = await axios.get(
       `${config.baseURL}/houseDetail/house/?personId=${personId}`,
       {
-        validateStatus: (status) => this.redirectErrorPage(status),
+        validateStatus: (status) => redirectErrorPage(status),
       }
     );
 
@@ -37,7 +37,7 @@ export class InfoService {
     const houseInfo = await axios.get(
       `${config.baseURL}/houseDetail/house/tenants?personId=${personId}`,
       {
-        validateStatus: (status) => this.redirectErrorPage(status),
+        validateStatus: (status) => redirectErrorPage(status),
       }
     );
     return houseInfo.data;
@@ -49,17 +49,10 @@ export class InfoService {
     const houseInfo = await axios.get(
       `${config.baseURL}/houseDetail/facility/list?personId=${personId}`,
       {
-        validateStatus: (status) => this.redirectErrorPage(status),
+        validateStatus: (status) => redirectErrorPage(status),
       }
     );
     return houseInfo.data;
-  };
-
-  redirectErrorPage = (status) => {
-    if (status >= 500) {
-      window.location.href = '/';
-    }
-    return status < 500;
   };
 }
 

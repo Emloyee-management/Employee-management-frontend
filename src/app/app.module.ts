@@ -32,6 +32,7 @@ import { SearchBarComponent } from './component/search-bar/search-bar.component'
 import { DialogComponentComponent } from './component/dialog-component/dialog-component.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PostService } from './service/PostService';
+import { AuthGuardService } from './service/AuthGuardService';
 
 
 @NgModule({

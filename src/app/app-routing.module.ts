@@ -11,6 +11,7 @@ import { ErrorPageComponent } from './component/error-page/error-page.component'
 import { AuthGuardService as AuthGuard } from './service/AuthGuardService';
 import { EmployeeProfilePageComponent } from './component/employee-profile-page/employee-profile-page.component';
 import { ErrorPageComponent } from './component/error-page/error-page.component';
+import { AuthGuardService as AuthGuard } from './service/AuthGuardService';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
