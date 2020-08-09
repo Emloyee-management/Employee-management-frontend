@@ -52,6 +52,7 @@ export class HomePageComponent implements OnInit {
               this.user = user;
             });
         }
+        console.info(this.user);
       });
     // var reader = new FileReader();
     // reader.readAsDataURL(this.avartar);

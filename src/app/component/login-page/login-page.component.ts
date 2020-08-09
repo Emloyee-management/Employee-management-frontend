@@ -43,6 +43,7 @@ export class LoginPageComponent implements OnInit {
       if (loginInfo.id !== 0) {
         localStorage.setItem('userName', loginInfo.userName);
         localStorage.setItem('passWord', loginInfo.password);
+        localStorage.setItem('title', loginInfo.title);
         localStorage.setItem('personId', loginInfo.personId.toString());
         localStorage.setItem('eId', loginInfo.eid.toString());
         this.router.navigateByUrl('/homepage');

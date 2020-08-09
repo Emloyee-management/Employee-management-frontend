@@ -8,6 +8,11 @@
       <a href="#">OPT STEM Management</a>
     </div>
   </div>
+  <div *ngIf="user.title === 'Manager'">
+    <a href="#">
+      Employees Management
+    </a>
+  </div>
   <div (mouseover)="onHover(house)" (mouseout)="onHoverout(house)">
     <p>Housing</p>
     <div class="sidenav--house">
