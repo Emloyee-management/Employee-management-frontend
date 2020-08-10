@@ -1,17 +1,30 @@
 <form class="example-form">
-  <mat-form-field class="example-full-width" style="width: 100%">
+  <mat-form-field class="example-full-width" style="width: 300px;">
     <mat-chip-list #chipList>
-      <mat-chip style="margin-top:0.4em;" *ngFor="let option of this.dataService.searchOption"
-        (removed)="removeOption(option)">
-        <span>{{option.fullname}}</span>
+      <mat-chip
+        style="margin-top: 0.4em;"
+        *ngFor="let option of this.dataService.searchOption"
+        (removed)="removeOption(option)"
+      >
+        <span>{{ option.fullname }}</span>
         <mat-icon matChipRemove>cancel</mat-icon>
       </mat-chip>
-      <input #autocompleteInput type="text" placeholder="Enter Fullname" matInput [formControl]="myControl"
-        [matAutocomplete]="auto" [matChipInputFor]="chipList">
+      <input
+        #autocompleteInput
+        type="text"
+        placeholder="Enter name"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+      />
       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-        <mat-option *ngFor="let option of autoCompleteList" [value]="option"
-          (onSelectionChange)="filterPostList($event)">
-          {{option.fullname}}
+        <mat-option
+          *ngFor="let option of autoCompleteList"
+          [value]="option"
+          (onSelectionChange)="filterPostList($event)"
+        >
+          {{ option.fullname }}
         </mat-option>
       </mat-autocomplete>
     </mat-chip-list>

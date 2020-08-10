@@ -1,42 +1,85 @@
 <div class="employee-profile__container">
-    <app-side-nav></app-side-nav>
-    <div class="employee-profile__content">
-        <header class="employee-profile__header">
-            <img src="../../../assets/open-menu.svg" alt="" (click)="openNav()" />
-        </header>
-        <app-search-bar class="employee-profile__searchbar" (onSelectedOption)="onSelectedOption($event)">
-        </app-search-bar>
-        <div class="employee-profile__body">
-            <div *ngFor="let employees of emp">
-                <div class="flex-align-start">
-                    <div class="employee-profile__body--link--box">
-                        <div class="employee-profile__body--link--box--content">
-                            <div class="employee-profile__body--link--box--content--text flex-align-center">
-                                <div>
-                                    <p class="key">Legal Fullname</p>
-                                    <p>{{employees.fullname}}</p>
-                                </div>
-                                <div>
-                                    <p class="key">Starting Date</p>
-                                    <p>{{employees.startdate}}</p>
-                                </div>
-                            </div>
-
-                            <div class="employee-profile__body--link--box--content--text flex-align-center">
-                                <div>
-                                    <p class="key">SSN</p>
-                                    <p>{{employees.ssn}}</p>
-                                </div>
-                                <div>
-                                    <p class="key">Visa Status</p>
-                                    <p>{{employees.visaStatus}}</p>
-                                </div>
-                            </div>
-                            <hr />
-                            <img src="../../../assets/edit.svg" alt="" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <app-side-nav></app-side-nav>
+  <div class="employee-profile__content">
+    <header class="employee-profile__header">
+      <img src="../../../assets/open-menu.svg" alt="" (click)="openNav()" />
+    </header>
+    <div class="employee-profile__title flex-align-center">
+      <h1>Employee profiles</h1>
+      <app-search-bar
+        class="employee-profile__searchbar"
+        (onSelectedOption)="onSelectedOption($event)"
+      >
+      </app-search-bar>
     </div>
+    <div class="employee-profile__body flex">
+      <div *ngFor="let employee of emp">
+        <div class="employee-profile__body--link--box">
+          <div class="employee-profile__body--link--box--content">
+            <div
+              class="employee-profile__body--link--box--content--text flex-align-center"
+            >
+              <div>
+                <p class="key">Full Name</p>
+                <p>{{ employee.firstName }}&nbsp;{{ employee.lastName }}</p>
+              </div>
+              <div>
+                <p class="key">Starting Date</p>
+                <p>{{ employee.employmentStartDate }}</p>
+              </div>
+            </div>
+            <div
+              class="employee-profile__body--link--box--content--text flex-align-center"
+            >
+              <div>
+                <p class="key">Email</p>
+                <p>{{ employee.email }}</p>
+              </div>
+              <div>
+                <p class="key">Cell Phone</p>
+                <p>{{ employee.cellphone }}</p>
+              </div>
+            </div>
+            <div
+              class="employee-profile__body--link--box--content--text flex-align-center"
+            >
+              <div>
+                <p class="key">Gender</p>
+                <p>{{ employee.gender }}</p>
+              </div>
+              <div>
+                <p class="key">Title</p>
+                <p>{{ employee.title }}</p>
+              </div>
+            </div>
+
+            <div
+              class="employee-profile__body--link--box--content--text flex-align-center"
+            >
+              <div>
+                <p class="key">SSN</p>
+                <p>{{ employee.ssn }}</p>
+              </div>
+              <div>
+                <p class="key">Visa Status</p>
+                <p>{{ employee.visaType }}</p>
+              </div>
+            </div>
+            <div
+              class="employee-profile__body--link--box--content--text flex-align-center"
+            >
+              <div>
+                <p class="key">Date of birth</p>
+                <p>{{ employee.dob }}</p>
+              </div>
+              <div>
+                <p class="key">Onboarding status</p>
+                <p>{{ employee.appWorkFlowStatus }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

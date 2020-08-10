@@ -1,63 +1,51 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/employee';
-import { DataService } from 'src/app/data.service';
+import { DataService } from 'src/app/service/DataService';
 
 @Component({
   selector: 'app-employee-profile-page',
   templateUrl: './employee-profile-page.component.html',
-  styleUrls: ['./employee-profile-page.component.scss']
+  styleUrls: ['./employee-profile-page.component.scss'],
 })
-export class EmployeeProfilePageComponent implements OnInit
-{
+export class EmployeeProfilePageComponent implements OnInit {
   isShow: boolean = false;
-  emp: Employee[]
-  constructor(
-    private dataService: DataService
-  ) { }
+  emp: IEmployee[];
+  constructor(private dataService: DataService) {}
 
-  ngOnInit(): void
-  {
-    this.dataService.getPosts().subscribe(employees =>
-    {
-      this.emp = employees
-      this.dataService.emp = employees
-    })
+  async ngOnInit(): Promise<void> {
+    (await this.dataService.getPosts()).subscribe((employees: IEmployee[]) => {
+      this.emp = employees;
+      this.dataService.emp = employees;
+      console.log(employees);
+    });
   }
 
-  onSelectedOption(e)
-  {
+  onSelectedOption = (e) => {
     this.getFilteredExpenseList();
-  }
+  };
 
-  getFilteredExpenseList()
-  {
-    if (this.dataService.searchOption.length > 0)
-    {
+  getFilteredExpenseList = () => {
+    if (this.dataService.searchOption.length > 0) {
       this.emp = this.dataService.filteredListOptions();
-    } else
-    {
+    } else {
       this.emp = this.dataService.emp;
     }
-  }
+  };
 
-  openNav = () =>
-  {
-    if (!this.isShow)
-    {
+  openNav = () => {
+    if (!this.isShow) {
       document.getElementById('mySidenav').style.width = '250px';
       document.getElementsByClassName(
         'employee-profile__content'
         //@ts-ignore
       )[0].style.marginLeft = '250px';
-    } else
-    {
+    } else {
       this.closeNav();
     }
     this.isShow = !this.isShow;
   };
 
-  closeNav = () =>
-  {
+  closeNav = () => {
     document.getElementById('mySidenav').style.width = '0';
     document.getElementsByClassName(
       'employee-profile__content'

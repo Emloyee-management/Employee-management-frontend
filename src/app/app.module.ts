@@ -29,11 +29,7 @@ import { EmployeeProfilePageComponent } from './component/employee-profile-page/
 import { HttpClientModule } from '@angular/common/http';
 import { DxSelectBoxModule, DxListModule } from 'devextreme-angular';
 import { SearchBarComponent } from './component/search-bar/search-bar.component';
-import { DialogComponentComponent } from './component/dialog-component/dialog-component.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { PostService } from './service/PostService';
-import { AuthGuardService } from './service/AuthGuardService';
-import { DialogValidationComponentComponent } from './component/dialog-validation-component/dialog-validation-component.component';
+import { DataService } from './service/DataService';
 
 @NgModule({
   declarations: [
@@ -70,7 +66,13 @@ import { DialogValidationComponentComponent } from './component/dialog-validatio
     MatDialogModule,
   ],
 
-  providers: [SessionService, InfoService, PostService, AuthGuardService],
+  providers: [
+    SessionService,
+    InfoService,
+    PostService,
+    AuthGuardService,
+    DataService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

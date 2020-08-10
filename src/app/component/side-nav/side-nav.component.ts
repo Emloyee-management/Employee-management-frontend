@@ -81,6 +81,6 @@ export class SideNavComponent implements OnInit {
 
   onLogout = () => {
     localStorage.clear();
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('/');
   };
 }

@@ -48,12 +48,13 @@ export class PostService {
     emergency_cellphone: string,
     emergency_email: string,
     emergency_relationship: string,
-    userName: string
+    userName: string,
+    personId: string
   ): Promise<boolean> => {
     let result = false;
     await axios
       .post(
-        `${config.baseURL}applicationForm?userName=${userName}`,
+        `${config.baseURL}applicationForm?userName=${userName}&personId=${personId}`,
         {
           firstName: firstName,
           lastName: lastName,
@@ -95,16 +96,16 @@ export class PostService {
           emergency_cellphone: emergency_cellphone,
           emergency_email: emergency_email,
           emergency_relationship: emergency_relationship,
-        },
-        {
-          validateStatus: (status) => redirectErrorPage(status),
         }
+        // {
+        //   validateStatus: (status) => redirectErrorPage(status),
+        // }
       )
       .then(() => {
         result = true;
       })
       .catch((e: AxiosResponse) => {
-        redirectErrorPage(500);
+        // redirectErrorPage(500);
       });
     return result;
   };

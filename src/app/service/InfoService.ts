@@ -54,40 +54,12 @@ export class InfoService {
     );
     return houseInfo.data;
   };
-}
 
-  getHousingInfo = async (personId: string): Promise<IHouse> => {
-    const houseInfo = await axios.get(
-      `${config.baseURL}/houseDetail/house/?personId=${personId}`,
-      {
-        validateStatus: (status) => redirectErrorPage(status),
-      }
+  getAllEmployee = async (): Promise<IEmployee[]> => {
+    const employeeList = await axios.get(
+      `${config.baseURL}/hiring/personInfoList`,
+      { validateStatus: (status) => redirectErrorPage(status) }
     );
-
-    return houseInfo.data;
-  };
-
-  getHousingEmployees = async (
-    personId: string
-  ): Promise<IHouseTenantsInfo> => {
-    const houseInfo = await axios.get(
-      `${config.baseURL}/houseDetail/house/tenants?personId=${personId}`,
-      {
-        validateStatus: (status) => redirectErrorPage(status),
-      }
-    );
-    return houseInfo.data;
-  };
-
-  getFacilityReport = async (
-    personId: number
-  ): Promise<IFacilityIssueResponse> => {
-    const houseInfo = await axios.get(
-      `${config.baseURL}/houseDetail/facility/list?personId=${personId}`,
-      {
-        validateStatus: (status) => redirectErrorPage(status),
-      }
-    );
-    return houseInfo.data;
+    return employeeList.data;
   };
 }

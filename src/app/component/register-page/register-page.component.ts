@@ -57,6 +57,7 @@ export class RegistrationComponent implements OnInit {
         this.registerForm.value.password
       );
       if (registerInfo.id !== 0) {
+        localStorage.setItem('personId', registerInfo.personId.toString());
         this.router.navigateByUrl('/onboarding');
       } else {
         const dialogRef = this.dialog.open(DialogValidationComponentComponent, {

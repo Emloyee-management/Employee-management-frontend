@@ -122,7 +122,8 @@ export class OnboardingPageComponent implements OnInit {
         this.formGroup.value.emergencyPhone,
         this.formGroup.value.emergencyEmail,
         this.formGroup.value.emergencyRelation,
-        localStorage.getItem('userName')
+        localStorage.getItem('userName'),
+        localStorage.getItem('personId')
       )
       .then(() => {
         this.waitingApprove = !this.waitingApprove;

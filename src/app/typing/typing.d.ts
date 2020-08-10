@@ -99,3 +99,38 @@ declare interface IFacilityIssueResponse {
 declare interface DialogData {
   comments: ICommentResponse[];
 }
+
+declare interface IEmployee {
+  firstName: string;
+  lastName: string;
+  middleName: string;
+  email: string;
+  cellphone: string;
+  car: string;
+  driverLicense: string;
+  driverLicense_expirationDate: string;
+  avatar: string;
+  dob: string;
+  gender: string;
+  addressLine1: string;
+  addressLine2: string;
+  city: string;
+  stateName: string;
+  zipCode: string;
+  stateAbbr: string;
+  alternatePhone: string;
+  visaType: string;
+  visaStartDate: string;
+  isaEndDate: string;
+  employmentStartDate: string;
+  employmentEndDate: string;
+  title: string;
+  ssn: string;
+  appWorkFlowStatus: string;
+  emergency_firstname: string;
+  emergency_lastname: string;
+  emergency_middlename: string;
+  emergencyContactPhone: string;
+  emergencyContactAddress: string;
+  personalDocumentTitle: string;
+}
