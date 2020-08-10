@@ -1,8 +1,11 @@
 // @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 $size__font--large: 36px;
 $size__font--regular: 18px;
 $size__font--text: 16px;
+$size__font--text2: 14px;
 $size__font--small: 12px;
 $size__font--hint: 10px;
 
@@ -14,11 +17,29 @@ $color--grey--border: #e5e5e5;
 $color--black: #000000;
 $color--white: #ffffff;
 $color--blue: #2443af;
+$color--theme: #edf1f5;
 
 *,
 *:before,
 *::after {
   box-sizing: border-box;
+}
+
+.custom-modalbox {
+  mat-dialog-container {
+    .mat-dialog-actions {
+      display: block;
+      text-align: center;
+      button {
+        background-color: $color--blue;
+        color: white;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        font-size: $size__font--regular;
+      }
+    }
+  }
 }
 
 h1,
@@ -73,6 +94,10 @@ form {
     align-items: center;
   }
 
+  &.text-center {
+    text-align: center;
+  }
+
   &.red {
     color: $color--red;
   }
@@ -118,3 +143,6 @@ p {
 .img-minus-arrow {
   cursor: pointer;
 }
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,19 +1,30 @@
 <div id="mySidenav" class="sidenav">
   <img src="../../../assets/employee.svg" alt="" />
   <a href="homepage">Home Page</a>
-  <a href="#">Personal Information</a>
-  <div (mouseover)="onHover(visa)" (mouseout)="onHoverout(visa)">
-    <p>Visa Status Management</p>
-    <div class="sidenav--visa">
-      <a href="#">OPT STEM Management</a>
+  <a href="personal-info">Personal Information</a>
+  <div *ngIf="user.title !== 'Manager'">
+    <div (mouseover)="onHover(visa)" (mouseout)="onHoverout(visa)">
+      <p>Visa Status Management</p>
+      <div class="sidenav--visa">
+        <a href="#">OPT STEM Management</a>
+      </div>
     </div>
+  </div>
+  <div *ngIf="user.title === 'Manager'">
+    <a href="employee-profile">
+      Employees Management
+    </a>
   </div>
   <div (mouseover)="onHover(house)" (mouseout)="onHoverout(house)">
     <p>Housing</p>
-    <div class="sidenav--house">
-      <a href="housing">House Detail</a>
-      <a href="facility-report">Report facility issue</a>
+    <div *ngIf="user.title !== 'Manager'">
+      <div class="sidenav--house">
+        <a href="housing">House Detail</a>
+        <a href="facility-report">Report facility issue</a>
+      </div>
     </div>
   </div>
-  <a href="#">Log Out</a>
+  <div (click)="onLogout()">
+    <a>Log Out</a>
+  </div>
 </div>

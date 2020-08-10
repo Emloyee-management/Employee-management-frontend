@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { InfoService } from 'src/app/service/InfoService';
+import { DialogComponentComponent } from '../dialog-component/dialog-component.component';
+import { MatDialog } from '@angular/material/dialog';
+import { PostService } from 'src/app/service/PostService';
+import { DialogValidationComponentComponent } from '../dialog-validation-component/dialog-validation-component.component';
 
 @Component({
   selector: 'app-facility-report-page',
@@ -8,72 +13,30 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class FacilityReportPageComponent implements OnInit {
   isShow: boolean = false;
+  loaded: boolean = true;
+  personId: number;
   visa: String = 'visa';
   house: String = 'house';
-  //@ts-ignore
-  reports: [] = [
-    {
-      title: 'No Power',
-      createdBy: 'user1',
-      reportDate: '01-01-2020',
-      status: 'open',
-    },
-    {
-      title: 'No Electricity',
-      createdBy: 'user1',
-      reportDate: '01-01-2020',
-      status: 'closed',
-    },
-    {
-      title: 'No Electricity',
-      createdBy: 'user1',
-      reportDate: '01-01-2020',
-      status: 'closed',
-    },
-    {
-      title: 'No Electricity',
-      createdBy: 'user1',
-      reportDate: '01-01-2020',
-      status: 'closed',
-    },
-    {
-      title: 'No Electricity',
-      createdBy: 'user1',
-      reportDate: '01-01-2020',
-      status: 'closed',
-    },
-    {
-      title: 'No Electricity',
-      createdBy: 'user1',
-      reportDate: '01-01-2020',
-      status: 'closed',
-    },
-    {
-      title: 'No Electricity',
-      createdBy: 'user1',
-      reportDate: '01-01-2020',
-      status: 'closed',
-    },
-    {
-      title: 'No Electricity',
-      createdBy: 'user1',
-      reportDate: '01-01-2020',
-      status: 'closed',
-    },
-    {
-      title: 'No Electricity',
-      createdBy: 'user1',
-      reportDate: '01-01-2020',
-      status: 'closed',
-    },
-  ];
+  facilityIssue: IFacilityIssueResponse;
+
   reportForm = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
   });
-  constructor() {}
+  constructor(
+    private infoService: InfoService,
+    public dialog: MatDialog,
+    private postService: PostService
+  ) {}
 
-  ngOnInit(): void {}
+  async ngOnInit(): Promise<void> {
+    this.personId = parseInt(localStorage.getItem('personId'));
+    this.facilityIssue = await this.infoService.getFacilityReport(
+      this.personId
+    );
+    this.loaded = !this.loaded;
+    console.info(this.facilityIssue);
+  }
 
   openNav = () => {
     if (!this.isShow) {
@@ -98,5 +61,35 @@ export class FacilityReportPageComponent implements OnInit {
 
   onCancel = () => {};
 
-  onSubmit = async () => {};
+  onSubmit = async () => {
+    const result = await this.postService.postFacilityReport(
+      this.reportForm.value.title,
+      this.reportForm.value.description,
+      parseInt(localStorage.getItem('eId'))
+    );
+    if (result) {
+      const dialogRef = this.dialog.open(DialogValidationComponentComponent, {
+        panelClass: 'custom-modalbox',
+        data: 'Successfully submmited!',
+      });
+    }
+  };
+
+  onReportClick = (id: number) => {
+    const dialogRef = this.dialog.open(DialogComponentComponent, {
+      width: '500px',
+
+      data: this.facilityIssue.commentResponse.filter(
+        (item: ICommentResponse) => {
+          return item.reportID === id;
+        }
+      ),
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+
+      //  this.animal = result;
+    });
+  };
 }

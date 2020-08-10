@@ -3,7 +3,22 @@
   overflow-y: auto;
   width: 100%;
   height: 100%;
-  background-color: #edf1f5;
+  background-color: $color--theme;
+  .facility-report-page-loading {
+    .mat-spinner {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    ::ng-deep .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: #2443af;
+    }
+  }
   .facility-report-page__content {
     transition: margin-left 0.5s;
     padding-bottom: 30px;
@@ -89,7 +104,7 @@
         cursor: pointer;
         background-color: $color--white;
         margin-left: 20px;
-        margin-bottom: 20px;
+
         padding: 15px;
         border-radius: 8px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1),

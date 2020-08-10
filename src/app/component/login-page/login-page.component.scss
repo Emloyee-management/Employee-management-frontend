@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #edf1f5;
+  background-color: $color--theme;
   .login-page-loading {
     .mat-spinner {
       position: fixed;
@@ -17,7 +17,7 @@
     }
     ::ng-deep .mat-progress-spinner circle,
     .mat-spinner circle {
-      stroke: #2443af;
+      stroke: $color--blue;
     }
   }
   .login-page__form {
@@ -65,7 +65,7 @@
 
       button {
         width: 100%;
-        background-color: #2443af;
+        background-color: $color--blue;
         color: white;
         border: none;
         padding: 10px 20px;

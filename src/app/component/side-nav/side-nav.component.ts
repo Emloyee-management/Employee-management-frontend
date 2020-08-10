@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SessionService } from 'src/app/service/SessionService';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-side-nav',
@@ -9,9 +12,29 @@ export class SideNavComponent implements OnInit {
   isShow: boolean = false;
   visa: String = 'visa';
   house: String = 'house';
-  constructor() {}
+  userSub: Subscription;
+  user: IUserInfo;
+  constructor(private router: Router, private sessionService: SessionService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userSub = this.sessionService
+      .getUserinfo()
+      .subscribe((user: IUserInfo) => {
+        if (user) {
+          this.user = user;
+        } else {
+          this.sessionService
+            .login(
+              localStorage.getItem('userName'),
+              localStorage.getItem('passWord')
+            )
+            .then((user) => {
+              this.user = user;
+            });
+        }
+        console.info(this.user);
+      });
+  }
 
   openNav = () => {
     if (!this.isShow) {
@@ -54,5 +77,10 @@ export class SideNavComponent implements OnInit {
       `sidenav--${value}`
       //@ts-ignore
     )[0].style.opacity = '0';
+  };
+
+  onLogout = () => {
+    localStorage.clear();
+    this.router.navigateByUrl('/');
   };
 }

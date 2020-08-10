@@ -20,6 +20,16 @@ import { InfoService } from './service/InfoService';
 import { HousingPageComponent } from './component/housing-page/housing-page.component';
 import { FacilityReportPageComponent } from './component/facility-report-page/facility-report-page.component';
 import { SideNavComponent } from './component/side-nav/side-nav.component';
+import { DialogComponentComponent } from './component/dialog-component/dialog-component.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PostService } from './service/PostService';
+import { AuthGuardService } from './service/AuthGuardService';
+import { DialogValidationComponentComponent } from './component/dialog-validation-component/dialog-validation-component.component';
+import { EmployeeProfilePageComponent } from './component/employee-profile-page/employee-profile-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DxSelectBoxModule, DxListModule } from 'devextreme-angular';
+import { SearchBarComponent } from './component/search-bar/search-bar.component';
+import { DataService } from './service/DataService';
 
 @NgModule({
   declarations: [
@@ -35,6 +45,12 @@ import { SideNavComponent } from './component/side-nav/side-nav.component';
     HousingPageComponent,
     FacilityReportPageComponent,
     SideNavComponent,
+    DialogComponentComponent,
+    DialogValidationComponentComponent,
+    EmployeeProfilePageComponent,
+    SearchBarComponent,
+    DialogComponentComponent,
+    DialogValidationComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +59,20 @@ import { SideNavComponent } from './component/side-nav/side-nav.component';
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatDialogModule,
+    DxSelectBoxModule,
+    DxListModule,
+    HttpClientModule,
+    MatDialogModule,
   ],
 
-  providers: [SessionService, InfoService],
+  providers: [
+    SessionService,
+    InfoService,
+    PostService,
+    AuthGuardService,
+    DataService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

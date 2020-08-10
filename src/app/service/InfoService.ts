@@ -1,35 +1,65 @@
 import axios, { AxiosResponse } from 'axios';
 import { Injectable } from '@angular/core';
-import { config } from '../config/config';
+import { config, redirectErrorPage } from '../config/config';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class InfoService {
-  constructor() {}
+  constructor(private router: Router) {}
 
-  
+  getPersonalInfo = async (
+    personId: number
+  ): Promise<IPersonalInfoResponse> => {
+    const personalInfo = await axios.get(
+      `${config.baseURL}/personInfo?personId=${personId}`,
+      {
+        validateStatus: (status) => redirectErrorPage(status),
+      }
+    );
 
-  register = async (username: string, email: string, password: string) => {
-    axios
-      .post(
-        `${config.baseURL}/registerUser/?username=${username}&email=${email}&password=${password}`,
-        {}
-      )
-      .then((data) => {
-        return data.data;
-      })
-      .catch((e) => {
-        console.info(e);
-      });
-    // return result.data;
+    return personalInfo.data;
   };
 
-  getInfo = () => {
-      axios.get(
-          `${config.baseURL}`
-      ).then((data) => {
-          return data.data;
+  getHousingInfo = async (personId: string): Promise<IHouse> => {
+    const houseInfo = await axios.get(
+      `${config.baseURL}/houseDetail/house/?personId=${personId}`,
+      {
+        validateStatus: (status) => redirectErrorPage(status),
       }
-          
-      )
-  }
-};
+    );
+
+    return houseInfo.data;
+  };
+
+  getHousingEmployees = async (
+    personId: string
+  ): Promise<IHouseTenantsInfo> => {
+    const houseInfo = await axios.get(
+      `${config.baseURL}/houseDetail/house/tenants?personId=${personId}`,
+      {
+        validateStatus: (status) => redirectErrorPage(status),
+      }
+    );
+    return houseInfo.data;
+  };
+
+  getFacilityReport = async (
+    personId: number
+  ): Promise<IFacilityIssueResponse> => {
+    const houseInfo = await axios.get(
+      `${config.baseURL}/houseDetail/facility/list?personId=${personId}`,
+      {
+        validateStatus: (status) => redirectErrorPage(status),
+      }
+    );
+    return houseInfo.data;
+  };
+
+  getAllEmployee = async (): Promise<IEmployee[]> => {
+    const employeeList = await axios.get(
+      `${config.baseURL}/hiring/personInfoList`,
+      { validateStatus: (status) => redirectErrorPage(status) }
+    );
+    return employeeList.data;
+  };
+}

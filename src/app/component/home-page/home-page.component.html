@@ -5,15 +5,19 @@
       <img src="../../../assets/open-menu.svg" alt="" />
     </header>
     <div class="home-page__body">
-      <h2>Hello Zack, Welcome to BeaconFire Solution!</h2>
+      <h1>Hello {{ user.userName }}, Welcome to BeaconFire Solution!</h1>
       <div class="flex-align-center">
         <div class="home-page__body--overview">
           <h2>Overview</h2>
-          <div>
-            <h4>Full name:</h4>
-            <h4>Email: {{ user.email }}</h4>
-            <h4>Position:</h4>
-            <h4>Check-in time:</h4>
+          <div class="text-center">
+            <img src="../../../assets/employee.svg" alt="" />
+            <div>
+              <h4>Full name: {{ user.fullname }}</h4>
+              <h4>Email: {{ user.email }}</h4>
+              <h4>Cell Phone: {{ user.cellPhone }}</h4>
+              <h4>Title: {{ user.title }}</h4>
+              <h4>Joined since: {{ user.startDate }}</h4>
+            </div>
           </div>
         </div>
 
