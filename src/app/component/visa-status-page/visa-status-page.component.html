@@ -1,95 +1,94 @@
 <div class="visa-status__container">
-  <div id="mySidenav" class="visa-status__sidenav">
-    <img src="../../../assets/employee.svg" alt="" />
-    <a href="#">Personal Information</a>
-    <div (mouseover)="onHover(visa)" (mouseout)="onHoverout(visa)">
-      <a href="#">Visa Status Management</a>
-      <div class="visa-status__sidenav--visa">
-        <a href="#">OPT STEM Management</a>
-      </div>
-    </div>
-    <div (mouseover)="onHover(house)" (mouseout)="onHoverout(house)">
-      <a href="#">Housing</a>
-      <div class="visa-status__sidenav--house">
-        <a href="#">House Detail</a>
-        <a href="#">Report facility issue</a>
-      </div>
-    </div>
-    <a href="#">Log Out</a>
-  </div>
-  <div class="visa-status__content">
-    <header class="visa-status__header" (click)="openNav()">
-      <img src="../../../assets/open-menu.svg" alt="" />
-    </header>
-    <div class="visa-status__body">
-      <h2>Visa Status Notification</h2>
-      <div class="flex-align-center">
-        <div class="visa-status__body--link--box">
-          <div class="visa-status__body--link--box-content">
-            <h2>{{msg}} {{visaStatus}}</h2>
-
-            <form class="visa-status__body--link--box-content">
-              <div *ngIf="visaStatus == 'optReceipt'">
-                <h2>Please upload your OPT EAD</h2>
-              </div>
-              <div *ngIf="visaStatus == 'optEad' && remainingEadDate < 100">
-                <div *ngIf="i983underReview == false">
-                  <h2>Please download and fill your I-983 form</h2>
-                  <!-- <a href="{{ sampleTemplateLink }}">download-sample-template</a
-                  ><br />
-                  <a href="{{ emptyTemplateLink }}">download-empty-template</a
-                  ><br /> -->
-                </div>
-                <div *ngIf="i983underReview == true">
-                  <h2>Waiting for HR to approve and sign I-983</h2>
-                </div>
-              </div>
-              <div *ngIf="visaStatus == 'i983'">
-                <h2>
-                  Please send the I-983 with all necessary documents to your
-                  school and upload the new I-20
-                </h2>
-              </div>
-              <div *ngIf="visaStatus == 'i20'">
-                <h2>Please upload your OPT STEM Receipt</h2>
-              </div>
-              <div *ngIf="visaStatus == 'optStemReceipt'">
-                <h2>Please upload your OPT STEM EAD</h2>
-              </div>
-              <div *ngIf="visaStatus == 'optStemEad'">
-                <h2>No Action Required</h2>
-              </div>
-              
-              <div *ngIf = "msg!='No Action Required'">
-                
-              <label for="docType"><br />Choose a Document Type: </label>
-              <select id="docType">
-                <option value="optEad">OPT EAD</option>
-                <option value="i983">I-983</option>
-                <option value="i20">I-20</option>
-                <option value="optStemReceipt">OPT STEM Receipt</option>
-                <option value="optStemEad">OPT STEM EAD</option> </select
-              ><br /><br>
-              <input type="file" (change)="onFileUpload($event.target.files)"/><br>
-              <button type="submit" value="Submit" (click)="onSubmit($event)">
-                Submit
-              </button>
-              </div>
-
-            </form>
-          </div>
-        </div>
-
-        <div class="visa-status__body--documents">
-          <h2>Documents</h2>
-          <div *ngFor="let document of documents" class="flex-align-center">
-            <img src="../../../assets/document.svg" alt="" width="20" />
-            <a href="http://localhost:8080/download?fileName={{document.title}}&id={{returnLocal()}}">
-              {{ document.title }}
-            </a>
-          </div>
-        </div>
-      </div>
+  <div *ngIf="loaded; else elseBlock">
+    <div class="visa-status-page-loading">
+      <mat-spinner></mat-spinner>
     </div>
   </div>
+  <ng-template #elseBlock>
+    <app-side-nav></app-side-nav>
+    <div class="visa-status__content">
+      <header class="visa-status__header" (click)="openNav()">
+        <img src="../../../assets/open-menu.svg" alt="" />
+      </header>
+      <div class="visa-status__body">
+        <h2>Visa Status Notification</h2>
+        <div class="flex-align-center">
+          <div class="visa-status__body--link--box">
+            <div class="visa-status__body--link--box-content">
+              <h2>{{ msg }} {{ visaStatus }}</h2>
+
+              <form class="visa-status__body--link--box-content">
+                <div *ngIf="visaStatus == 'optReceipt'">
+                  <h2>Please upload your OPT EAD</h2>
+                </div>
+                <div *ngIf="visaStatus == 'optEad' && remainingEadDate < 100">
+                  <div *ngIf="i983underReview == false">
+                    <h2>Please download and fill your I-983 form</h2>
+                    <!-- <a href="{{ sampleTemplateLink }}">download-sample-template</a
+                     ><br />
+                     <a href="{{ emptyTemplateLink }}">download-empty-template</a
+                     ><br /> -->
+                  </div>
+                  <div *ngIf="i983underReview == true">
+                    <h2>Waiting for HR to approve and sign I-983</h2>
+                  </div>
+                </div>
+                <div *ngIf="visaStatus == 'i983'">
+                  <h2>
+                    Please send the I-983 with all necessary documents to your
+                    school and upload the new I-20
+                  </h2>
+                </div>
+                <div *ngIf="visaStatus == 'i20'">
+                  <h2>Please upload your OPT STEM Receipt</h2>
+                </div>
+                <div *ngIf="visaStatus == 'optStemReceipt'">
+                  <h2>Please upload your OPT STEM EAD</h2>
+                </div>
+                <div *ngIf="visaStatus == 'optStemEad'">
+                  <h2>No Action Required</h2>
+                </div>
+
+                <div *ngIf="msg != 'No Action Required'">
+                  <label for="docType"><br />Choose a Document Type: </label>
+                  <select id="docType">
+                    <option value="optEad">OPT EAD</option>
+                    <option value="i983">I-983</option>
+                    <option value="i20">I-20</option>
+                    <option value="optStemReceipt">OPT STEM Receipt</option>
+                    <option value="optStemEad">OPT STEM EAD</option> </select
+                  ><br /><br />
+                  <input
+                    type="file"
+                    (change)="onFileUpload($event.target.files)"
+                  /><br />
+                  <button
+                    type="submit"
+                    value="Submit"
+                    (click)="onSubmit($event)"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="visa-status__body--documents">
+            <h2>Documents</h2>
+            <div *ngFor="let document of documents" class="flex-align-center">
+              <img src="../../../assets/document.svg" alt="" width="20" />
+              <a
+                href="http://localhost:8080/download?fileName={{
+                  document.title
+                }}&id={{ returnLocal() }}"
+              >
+                {{ document.title }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </div>

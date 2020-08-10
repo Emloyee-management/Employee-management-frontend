@@ -6,7 +6,8 @@ import { InfoService } from 'src/app/service/InfoService';
   templateUrl: './housing-page.component.html',
   styleUrls: ['./housing-page.component.scss'],
 })
-export class HousingPageComponent implements OnInit {
+export class HousingPageComponent implements OnInit
+{
   loaded: boolean = true;
 
   isShow: boolean = false;
@@ -15,32 +16,38 @@ export class HousingPageComponent implements OnInit {
   houseInfo: IHouse;
   houseEmployeeInfo: IHouseTenantsInfo;
 
-  constructor(private infoService: InfoService) {}
+  constructor(private infoService: InfoService) { }
 
-  async ngOnInit(): Promise<void> {
+  async ngOnInit(): Promise<void>
+  {
     this.houseInfo = await this.infoService.getHousingInfo(
       localStorage.getItem('personId')
     );
     this.houseEmployeeInfo = await this.infoService.getHousingEmployees(
       localStorage.getItem('personId')
     );
+
     this.loaded = !this.loaded;
   }
 
-  openNav = () => {
-    if (!this.isShow) {
+  openNav = () =>
+  {
+    if (!this.isShow)
+    {
       document.getElementById('mySidenav').style.width = '250px';
       document.getElementsByClassName(
         'housing-page__content'
         //@ts-ignore
       )[0].style.marginLeft = '250px';
-    } else {
+    } else
+    {
       this.closeNav();
     }
     this.isShow = !this.isShow;
   };
 
-  closeNav = () => {
+  closeNav = () =>
+  {
     document.getElementById('mySidenav').style.width = '0';
     document.getElementsByClassName(
       'housing-page__content'

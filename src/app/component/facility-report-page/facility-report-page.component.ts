@@ -72,13 +72,13 @@ export class FacilityReportPageComponent implements OnInit {
         panelClass: 'custom-modalbox',
         data: 'Successfully submmited!',
       });
+      location.reload();
     }
   };
 
   onReportClick = (id: number) => {
     const dialogRef = this.dialog.open(DialogComponentComponent, {
       width: '500px',
-
       data: this.facilityIssue.commentResponse.filter(
         (item: ICommentResponse) => {
           return item.reportID === id;
@@ -88,8 +88,6 @@ export class FacilityReportPageComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
-
-      //  this.animal = result;
     });
   };
 }

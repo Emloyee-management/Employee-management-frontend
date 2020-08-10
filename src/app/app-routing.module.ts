@@ -7,9 +7,11 @@ import { HomePageComponent } from './component/home-page/home-page.component';
 import { PersonalInfoPageComponent } from './component/personal-info-page/personal-info-page.component';
 import { HousingPageComponent } from './component/housing-page/housing-page.component';
 import { FacilityReportPageComponent } from './component/facility-report-page/facility-report-page.component';
+import { HouseManagementPageComponent } from './component/house-management-page/house-management-page.component';
 import { ErrorPageComponent } from './component/error-page/error-page.component';
 import { AuthGuardService as AuthGuard } from './service/AuthGuardService';
 import { EmployeeProfilePageComponent } from './component/employee-profile-page/employee-profile-page.component';
+import { VisaStatusComponent } from './component/visa-status-page/visa-status-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'housing', component: HousingPageComponent },
   { path: 'personal-info', component: PersonalInfoPageComponent },
   { path: 'facility-report', component: FacilityReportPageComponent },
-  { path: 'employee-profile', component: EmployeeProfilePageComponent },
+  { path: 'hrhouse', component: HouseManagementPageComponent },
+  { path: 'visa-status', component: VisaStatusComponent },
+  { path: 'employee-profiles', component: EmployeeProfilePageComponent },
   { path: '**', component: ErrorPageComponent },
 ];
 
