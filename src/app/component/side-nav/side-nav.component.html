@@ -17,11 +17,10 @@
   </div>
   <div (mouseover)="onHover(house)" (mouseout)="onHoverout(house)">
     <p>Housing</p>
-    <div *ngIf="user.title !== 'Manager'">
-      <div class="sidenav--house">
-        <a href="housing">House Detail</a>
-        <a href="facility-report">Report facility issue</a>
-      </div>
+    <div class="sidenav--house">
+      <a href="housing">House Detail</a>
+      <a href="facility-report">Report facility issue</a>
+      <a href="hrhouse">House Management</a>
     </div>
   </div>
   <div (click)="onLogout()">

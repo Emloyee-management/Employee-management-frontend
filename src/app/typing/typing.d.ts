@@ -1,10 +1,12 @@
-declare interface ILoginInfo {
+declare interface ILoginInfo
+{
   userInfo: IUserInfo;
   scopeId: number;
   token: string;
 }
 
-declare interface IUserInfo {
+declare interface IUserInfo
+{
   id: number;
   userName: string;
   email: string;
@@ -20,7 +22,8 @@ declare interface IUserInfo {
   cellPhone: string;
 }
 
-declare interface IPersonalInfoResponse {
+declare interface IPersonalInfoResponse
+{
   firstName: string;
   lastName: string;
   avatar: string;
@@ -52,26 +55,30 @@ declare interface IPersonalInfoResponse {
   personalDocumentTitle: string;
 }
 
-declare interface IHouse {
+declare interface IHouse
+{
   id: number;
   contactId: number;
   address: string;
   numberOfPerson: number;
 }
 
-declare interface IHouseTenantsInfo {
+declare interface IHouseTenantsInfo
+{
   address: string;
   employeeList: IHouseEmployee[];
 }
 
-declare interface IHouseEmployee {
+declare interface IHouseEmployee
+{
   firstName: string;
   middleName: string;
   lastName: string;
   cellphone: string;
 }
 
-declare interface IReportResponse {
+declare interface IReportResponse
+{
   firstName: string;
   middleName: string;
   lastName: string;
@@ -82,7 +89,8 @@ declare interface IReportResponse {
   status: string;
 }
 
-declare interface ICommentResponse {
+declare interface ICommentResponse
+{
   firstName: string;
   middleName: string;
   lastName: string;
@@ -91,12 +99,38 @@ declare interface ICommentResponse {
   createdDate: string;
 }
 
-declare interface IFacilityIssueResponse {
+declare interface IHouseInfo
+{
+  houseId: number;
+  phone: String;
+  address: string;
+  numberOfPerson: number;
+  landlord: string;
+  email: string;
+}
+declare interface IFacilityInfo
+{
+  houseId: number;
+  numOfBeds: number;
+  numOfMattress: number;
+  numOfTables: number;
+  numOfChairs: number;
+}
+
+declare interface IFacilityIssueResponse
+{
   reportResponse: IReportResponse[];
   commentResponse: ICommentResponse[];
 }
 
-declare interface DialogData {
+declare interface IFacilityInfoResponse
+{
+  facilityInfoResponse: IFacilityInfo[];
+  houseInfoResponse: IHouseInfo[];
+}
+
+declare interface DialogData
+{
   comments: ICommentResponse[];
 }
 
@@ -145,3 +179,8 @@ declare interface IDocData {
   createdBy: String
 }
 
+
+declare interface DialogFacilityInfo
+{
+  facilityInfo: IFacilityInfo[];
+}

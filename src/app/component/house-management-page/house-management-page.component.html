@@ -1,0 +1,90 @@
+<div class="facility-report-page__container">
+    <div *ngIf="facilityInfo === null; else elseBlock">
+        <div class="facility-report-page-loading">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <app-side-nav></app-side-nav>
+        <div class="facility-report-page__content">
+            <header class="facility-report-page__header" (click)="openNav()">
+                <img src="../../../assets/open-menu.svg" alt="" />
+            </header>
+
+            <!-- <form class="facility-report-page__form" [formGroup]="reportForm">
+          <div class="facility-report-page__form--area">
+            <h1>Facility Issue Report Form</h1>
+            <h4>Title:</h4>
+            <input type="text" formControlName="title" />
+            <h4>Description:</h4>
+            <textarea formControlName="description"></textarea>
+            <div class="facility-report-page__buttons flex-align-center">
+              <Button type="submit" (click)="onCancel()">Reset</Button>
+              <Button type="submit" (click)="onSubmit()">Submit Report</Button>
+            </div>
+          </div>
+        </form> -->
+
+            <div class="facility-report-page__reports flex-align-center">
+                <h2>Exisitng report(s):</h2>
+                <div class="report-box" *ngFor="let house of facilityInfo; let i = index"
+                    (click)="onReportClick(house.houseId)">
+
+                    <div class="flex-align-center">
+                        <h4>
+                            Address:
+                        </h4>
+                        &nbsp;{{ house.address }}
+                    </div>
+                    <div class="flex-align-center">
+                        <h4>Landlord:</h4>
+                        &nbsp;{{house.landlord}}
+                    </div>
+                    <div class="flex-align-center">
+                        <h4>Phone Number:</h4>
+                        &nbsp;{{ house.phone }}
+                    </div>
+                    <div class="flex-align-center">
+                        <h4>Email</h4>
+                        &nbsp;{{ house.email }}
+                    </div>
+                    <div class="flex-align-center">
+                        <h4>Number of Person:</h4>
+                        &nbsp;{{ house.numberOfPerson }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+
+<!-- <div class="facility-report-page__reports flex-align-center">
+    <h2>Exisitng report(s):</h2>
+    <div class="report-box" *ngFor="let house of facilityInfo.houseInfoResponse; let i = index"
+        (click)="onReportClick(house.id)">
+        
+        <div class="flex-align-center">
+            <h4>
+                Address:
+            </h4>
+            &nbsp;{{ house.address }}
+        </div>
+        <div class="flex-align-center">
+            <h4>Landlord:</h4>
+            &nbsp;{{house.landlord}}
+        </div>
+        <div class="flex-align-center">
+            <h4>Phone Number:</h4>
+            &nbsp;{{ house.phone }}
+        </div>
+        <div class="flex-align-center">
+            <h4>Email</h4>
+            &nbsp;{{ house.email }}
+        </div>
+        <div class="flex-align-center">
+            <h4>Number of Person:</h4>
+            &nbsp;{{ house.numberOfPerson }}
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,32 @@
+<p>dialog-housing works!</p>
+<div class="dialog-component">
+    <h1 mat-dialog-title>Housing Details</h1>
+    <!-- <div mat-dialog-content *ngFor="let hdetail of data; let i = index"> -->
+    <div class="comment-box">
+        <div class="flex-align-center">
+            <h4>Number of Beds:&nbsp;</h4>
+            <p>{{ data.numOfBeds }}&nbsp;</p>
+        </div>
+        <div class="flex-align-center">
+            <h4>Number of Mattress:&nbsp;</h4>
+            <p>{{ data.numOfMattress }}</p>
+        </div>
+        <div class="flex-align-center">
+            <h4>Number of Table:&nbsp;</h4>
+            <p>{{ data.numOfTables }}</p>
+        </div>
+        <div class="flex-align-center">
+            <h4>Number of Chair:&nbsp;</h4>
+            <p>{{ data.numOfChairs }}</p>
+        </div>
+    </div>
+    <!-- <p>What's your favorite animal?</p> -->
+    <!-- <mat-form-field>
+        <mat-label>Favorite Animal</mat-label>
+        <input matInput [(ngModel)]="data.animal" />
+      </mat-form-field> -->
+    <!-- </div> -->
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Ok</button>
+    </div>
+</div>

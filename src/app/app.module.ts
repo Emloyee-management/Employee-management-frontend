@@ -25,11 +25,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PostService } from './service/PostService';
 import { AuthGuardService } from './service/AuthGuardService';
 import { DialogValidationComponentComponent } from './component/dialog-validation-component/dialog-validation-component.component';
-import { EmployeeProfilePageComponent } from './component/employee-profile-page/employee-profile-page.component';
-import { HttpClientModule } from '@angular/common/http';
-import { DxSelectBoxModule, DxListModule } from 'devextreme-angular';
-import { SearchBarComponent } from './component/search-bar/search-bar.component';
-import { DataService } from './service/DataService';
+import { HouseManagementPageComponent } from './component/house-management-page/house-management-page.component';
+import { DialogHousingComponent } from './component/dialog-housing/dialog-housing.component';
+
 
 @NgModule({
   declarations: [
@@ -47,10 +45,9 @@ import { DataService } from './service/DataService';
     SideNavComponent,
     DialogComponentComponent,
     DialogValidationComponentComponent,
-    EmployeeProfilePageComponent,
-    SearchBarComponent,
-    DialogComponentComponent,
-    DialogValidationComponentComponent,
+    HouseManagementPageComponent,
+    DialogHousingComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -75,4 +72,4 @@ import { DataService } from './service/DataService';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
