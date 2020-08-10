@@ -11,6 +11,7 @@ import { HouseManagementPageComponent } from './component/house-management-page/
 import { ErrorPageComponent } from './component/error-page/error-page.component';
 import { AuthGuardService as AuthGuard } from './service/AuthGuardService';
 import { EmployeeProfilePageComponent } from './component/employee-profile-page/employee-profile-page.component';
+import { VisaStatusComponent } from './component/visa-status-page/visa-status-page.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path: 'personal-info', component: PersonalInfoPageComponent },
   { path: 'facility-report', component: FacilityReportPageComponent },
   { path: 'hrhouse', component: HouseManagementPageComponent },
+  { path: 'visa-status', component: VisaStatusComponent },
+  { path: 'employee-profiles', component: EmployeeProfilePageComponent },
   { path: '**', component: ErrorPageComponent },
 ];
 
@@ -30,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

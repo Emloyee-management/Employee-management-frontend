@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../employee';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import axios, { AxiosResponse } from 'axios';
 import { config, redirectErrorPage } from '../config/config';
 
 @Injectable()
-//@ts-ignore
 export class DataService {
   searchOption = [];
   public emp: IEmployee[];
   postUrl: string =
     'https://my-json-server.typicode.com/thuvo22/empProfile/employees';
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   async getPosts(): Promise<Observable<IEmployee[]>> {
     const employeeList = await axios.get(

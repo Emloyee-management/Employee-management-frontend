@@ -6,21 +6,25 @@
     <div (mouseover)="onHover(visa)" (mouseout)="onHoverout(visa)">
       <p>Visa Status Management</p>
       <div class="sidenav--visa">
-        <a href="#">OPT STEM Management</a>
+        <a href="visa-status">Documents Management</a>
       </div>
     </div>
   </div>
   <div *ngIf="user.title === 'Manager'">
-    <a href="employee-profile">
+    <a href="employee-profiles">
       Employees Management
     </a>
   </div>
   <div (mouseover)="onHover(house)" (mouseout)="onHoverout(house)">
-    <p>Housing</p>
-    <div class="sidenav--house">
-      <a href="housing">House Detail</a>
-      <a href="facility-report">Report facility issue</a>
+    <div *ngIf="user.title === 'Manager'">
       <a href="hrhouse">House Management</a>
+    </div>
+    <div *ngIf="user.title !== 'Manager'">
+      <p>Housing</p>
+      <div class="sidenav--house">
+        <a href="housing">House Detail</a>
+        <a href="facility-report">Report facility issue</a>
+      </div>
     </div>
   </div>
   <div (click)="onLogout()">

@@ -27,7 +27,12 @@ import { AuthGuardService } from './service/AuthGuardService';
 import { DialogValidationComponentComponent } from './component/dialog-validation-component/dialog-validation-component.component';
 import { HouseManagementPageComponent } from './component/house-management-page/house-management-page.component';
 import { DialogHousingComponent } from './component/dialog-housing/dialog-housing.component';
-
+import { DataService } from './service/DataService';
+import { EmployeeProfilePageComponent } from './component/employee-profile-page/employee-profile-page.component';
+import { DxSelectBoxModule, DxListModule } from 'devextreme-angular';
+import { SearchBarComponent } from './component/search-bar/search-bar.component';
+import { VisaStatusComponent } from './component/visa-status-page/visa-status-page.component';
+import { FileService } from './service/FileService';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,9 @@ import { DialogHousingComponent } from './component/dialog-housing/dialog-housin
     DialogValidationComponentComponent,
     HouseManagementPageComponent,
     DialogHousingComponent,
-
+    EmployeeProfilePageComponent,
+    SearchBarComponent,
+    VisaStatusComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,7 @@ import { DialogHousingComponent } from './component/dialog-housing/dialog-housin
     MatDialogModule,
     DxSelectBoxModule,
     DxListModule,
-    HttpClientModule,
+
     MatDialogModule,
   ],
 
@@ -69,7 +76,8 @@ import { DialogHousingComponent } from './component/dialog-housing/dialog-housin
     PostService,
     AuthGuardService,
     DataService,
+    FileService,
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
