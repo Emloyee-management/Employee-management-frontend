@@ -134,3 +134,14 @@ declare interface IEmployee {
   emergencyContactAddress: string;
   personalDocumentTitle: string;
 }
+
+declare interface IDocData {
+  id: number,
+  employeeId: number,
+  path: String,
+  title: String,
+  comment: String,
+  createdDate: String,
+  createdBy: String
+}
+

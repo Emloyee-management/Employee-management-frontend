@@ -1,0 +1,150 @@
+@import "../../../styles.scss";
+
+.visa-status__container {
+  width: 100%;
+  height: 100%;
+  background-color: #edf1f5;
+
+  .visa-status__sidenav {
+    height: 100%;
+    width: 0;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: $color--white;
+    position: fixed;
+    overflow-x: hidden;
+    transition: 0.5s;
+
+    text-align: center;
+    img {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      width: 50px;
+      height: 50px;
+    }
+    a {
+      margin-top: 20px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    a:hover,
+    .offcanvas a:focus {
+      color: #f1f1f1;
+    }
+    .visa-status__sidenav--house {
+      // display: none;
+      transition: opacity 1s ease-out;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      a {
+        font-size: $size__font--small;
+      }
+    }
+    .visa-status__sidenav--visa {
+      // display: none;
+      transition: opacity 1s ease-out;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      a {
+        font-size: $size__font--small;
+      }
+    }
+  }
+  .visa-status__content {
+    height: 100%;
+    transition: margin-left 0.5s;
+
+    .visa-status__header {
+      height: 60px;
+      color: $color--white;
+      background-color: #2443af;
+      position: relative;
+      img {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        left: 30px;
+        transform: translateY(-50%);
+        color: $color--white;
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .visa-status__body {
+      padding: 30px 0px 0px 30px;
+      .visa-status__body--documents {
+        // position: relative;
+        img{
+          cursor: pointer;
+        }
+        padding: 20px;
+        background-color: $color--white;
+        margin-right: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        div {
+          margin-top: 30px;
+          margin-left: 10px;
+          h4 {
+            margin-bottom: 15px;
+            color: $color--grey--light;
+          }
+        }
+      }
+
+        .visa-status__body--link--box {
+          border-radius: 8px;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          margin: 20px;
+            width: 80%;
+          height: 500px;
+          background-color: $color--white;
+          cursor: pointer;
+          .visa-status__body--link--box-content {
+            width: 100%;
+            text-align: center;
+            
+            button {
+              background-color: #2443af;
+              color: white;
+              border: none;
+              padding: 10px 20px;
+              text-align: center;
+              text-decoration: none;
+              font-size: $size__font--regular;
+              margin-top: 20px;
+              cursor: pointer;
+            }
+            // position: absolute;
+            // margin: 0;
+            // top: 50%;
+            // -ms-transform: translateY(-50%);
+            // transform: translateY(-50%);
+            h2 {
+              margin-top: 5%;
+            }
+
+          }
+        }
+    //   }
+    }
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+}
